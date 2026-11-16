@@ -1,0 +1,182 @@
+[
+  {
+    "id": "d01",
+    "split": "dev",
+    "question": "According to the Anaconda (2020) survey, how much of the data science process do data scientists spend on data collection and cleaning?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d02",
+    "split": "dev",
+    "question": "What stages does a data science project go through, in order?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d03",
+    "split": "dev",
+    "question": "What did Walmart learn about strawberry Pop-Tart sales before Hurricane Frances?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d04",
+    "split": "dev",
+    "question": "How did Amazon reorganize its warehousing to cut delivery time and cost?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d05",
+    "split": "dev",
+    "question": "What do the street sensors installed in San Diego measure, and what do they control?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d06",
+    "split": "dev",
+    "question": "Which overlooked player statistics did the Oakland Athletics focus on using sabermetrics?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d07",
+    "split": "dev",
+    "question": "Under what condition would class size be considered discrete rather than continuous data?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d08",
+    "split": "dev",
+    "question": "What is the difference between nominal and ordinal data?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d09",
+    "split": "dev",
+    "question": "Why is web data usually stored as JSON or XML rather than CSV?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d10",
+    "split": "dev",
+    "question": "How many items and attributes does the Jeopardy JSON dataset have?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d11",
+    "split": "dev",
+    "question": "After editing several code cells in Colab, how should you run them to avoid errors from execution order?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d12",
+    "split": "dev",
+    "question": "What is the difference between a Pandas DataFrame and a Series?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "d13",
+    "split": "dev",
+    "question": "How many items are in the Iris Flower dataset, and why does that differ from the number of rows?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer",
+    "filter": {
+      "section": "1.3"
+    }
+  },
+  {
+    "id": "d14",
+    "split": "dev",
+    "question": "What is the goal of data visualization?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer",
+    "filter": {
+      "section": "1.1"
+    }
+  },
+  {
+    "id": "d15",
+    "split": "dev",
+    "question": "Why does the textbook focus on Python instead of other programming languages?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer",
+    "filter": {
+      "section": "1.4"
+    }
+  },
+  {
+    "id": "t01",
+    "split": "test",
+    "question": "Why can machine learning models trained on historical data make unfair decisions?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "t02",
+    "split": "test",
+    "question": "In JSON, what are the two fields on either side of a colon called?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "t03",
+    "split": "test",
+    "question": "In Jupyter Notebook, if several lines in one cell produce values without print(), which output is shown?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "t04",
+    "split": "test",
+    "question": "Which Pandas feature do you use to keep only the rows that meet a condition?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer"
+  },
+  {
+    "id": "t05",
+    "split": "test",
+    "question": "Which tools are known for sophisticated, interactive visualizations of high-dimensional data?",
+    "answerable": true,
+    "expected_behavior": "search_and_answer",
+    "filter": {
+      "section": "1.4"
+    }
+  },
+  {
+    "id": "dn01",
+    "split": "dev",
+    "question": "According to the Anaconda (2020) survey, what share of their time do data scientists spend on deploying models to production?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain"
+  },
+  {
+    "id": "dn02",
+    "split": "dev",
+    "question": "What is the median annual salary of data scientists according to the Bureau of Labor Statistics?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain"
+  },
+  {
+    "id": "tn01",
+    "split": "test",
+    "question": "How much does a Tableau or PowerBI license cost per user per month?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain"
+  },
+  {
+    "id": "tn02",
+    "split": "test",
+    "question": "What is the Pearson correlation coefficient between US gross and worldwide gross in the movie profit dataset?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain"
+  }
+]

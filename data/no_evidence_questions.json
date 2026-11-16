@@ -1,0 +1,42 @@
+[
+  {
+    "id": "dn01",
+    "split": "dev",
+    "question": "According to the Anaconda (2020) survey, what share of their time do data scientists spend on deploying models to production?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "near_topic_page": 21,
+    "absence_reason": "Page 21 reports the Anaconda (2020) split only for data collection and cleaning (about half) and for data analysis and communication (about a quarter to a third each). Model deployment is not mentioned on any corpus page.",
+    "verification": "Regex search over the extracted text of every corpus page (PDF 19-63) for 'deploy|production|model (training|selection|building)|<number>%|percent': no deployment share found; the only percentages are Walmart/Amazon figures (p23) and describe() quartiles (p49)."
+  },
+  {
+    "id": "dn02",
+    "split": "dev",
+    "question": "What is the median annual salary of data scientists according to the Bureau of Labor Statistics?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "near_topic_page": 32,
+    "absence_reason": "The Bureau of Labor Statistics appears only on page 32, in a list of public dataset sources. The chapter gives no salary, wage or job-outlook figures.",
+    "verification": "Regex search over every corpus page (PDF 19-63) for 'salar|wage|earn|median pay|income of data|job outlook|employment growth': only false positives inside the word 'learn'."
+  },
+  {
+    "id": "tn01",
+    "split": "test",
+    "question": "How much does a Tableau or PowerBI license cost per user per month?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "near_topic_page": 40,
+    "absence_reason": "Page 40 describes Tableau and PowerBI as user-friendly visualization and dashboard tools but gives no price, subscription or licensing information.",
+    "verification": "Regex search over every corpus page (PDF 19-63) for '$|price|pricing|cost|subscription|licens|free version|per month|per user': only unrelated hits (Walmart revenue and Amazon shipping cost on p23, health-care cost on p25)."
+  },
+  {
+    "id": "tn02",
+    "split": "test",
+    "question": "What is the Pearson correlation coefficient between US gross and worldwide gross in the movie profit dataset?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "near_topic_page": 58,
+    "absence_reason": "Pages 57-58 draw a scatterplot of US_Gross_Million vs Worldwide_Gross_Million and state only that it shows a positive correlation; no coefficient value is computed or reported, and correlation analysis is deferred to a later chapter. Correct behavior: say the value is not given (mentioning that the plot shows a positive correlation is acceptable); any numeric coefficient fails.",
+    "verification": "Regex search over every corpus page (PDF 19-63) for 'coefficient|r =|pearson|correlat': only p57 (forward reference to 'Correlation and Linear Regression Analysis') and p58 ('positive correlation'), no numeric value."
+  }
+]

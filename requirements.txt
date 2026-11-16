@@ -1,0 +1,7 @@
+# Same versions as the Day 6 run, so query embeddings match the stored vectors.
+psycopg[binary]==3.3.8
+python-dotenv>=1,<2
+sentence-transformers==6.3.0
+torch==2.15.0
+transformers==5.23.0
+pypdf>=5,<7

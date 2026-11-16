@@ -1,0 +1,56 @@
+{
+  "exported_utc": "2026-11-16T03:03:18+00:00",
+  "day6_repo": "K5-L3B-DAY06-PhamNgocLong-2A202604111-DataIngestion",
+  "day6_strategy": "B",
+  "day6_strategy_config": {
+    "chunking": "by_paragraph",
+    "max_size": 900,
+    "overlap": 0,
+    "index": "B",
+    "use_filter": false
+  },
+  "embedding": {
+    "provider": "local sentence-transformers",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "max_seq_length_tokens": 256,
+    "device": "mps:0",
+    "normalize_embeddings": true,
+    "query_document_handling": "identical encoding, no prefixes",
+    "sentence_transformers": "6.3.0",
+    "torch": "2.15.0",
+    "cost_usd": 0,
+    "model_load_seconds": 5.1
+  },
+  "vector_store": {
+    "backend": "PostgreSQL + pgvector",
+    "postgres": "17.11 (Homebrew)",
+    "pgvector": "0.8.7",
+    "table": "chunks",
+    "metric": "cosine (<=>)",
+    "search": "exact (no ANN index)"
+  },
+  "day6_python": "3.15.2",
+  "embedding_models_in_index": [
+    "sentence-transformers/all-MiniLM-L6-v2"
+  ],
+  "chunks": 135,
+  "benchmark": {
+    "dev": {
+      "answerable": 15,
+      "no_evidence": 2
+    },
+    "test": {
+      "answerable": 5,
+      "no_evidence": 2
+    }
+  },
+  "gold_whitespace_aligned": 15,
+  "gold_check": {
+    "exact": 20,
+    "whitespace": 0,
+    "missing": 0
+  },
+  "gold_problems": [],
+  "license": "Chunk text: OpenStax Principles of Data Science, CC BY-NC-SA 4.0, openstax.org"
+}
