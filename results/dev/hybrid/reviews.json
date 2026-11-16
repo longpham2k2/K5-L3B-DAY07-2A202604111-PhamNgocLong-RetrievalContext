@@ -1,0 +1,186 @@
+[
+  {
+    "query_id": "d01",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: 'about half of the entire process' from p021:c00.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d02",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: five stages in order (p020:c04). Found on the second search.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d03",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete (p023:c01). No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d04",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: eight regions, within-region warehousing and shipping; extra ML pre-stocking claim also in p023:c02.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d05",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct and complete, including 'turn on only when necessary' (p024:c02) and streetlights (p024:c01).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d06",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete (p025:c03).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d07",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct with the condition: 200-seat cap gives a finite set of 200 numbers (p028:c04). No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d08",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct: ordering vs no ordering (p029:c00); added 'degree or chronological order' supported by the ratings and semester examples in p029:c01.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d09",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct and complete: JSON for user-server exchange, XML for hierarchical data (p031:c01); added 'CSV limited to flat, tabular structures' supported by Table 1.3 in p031:c02 (CSV: flat structure, tabular data). No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d10",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: 409 items, seven attributes with names (p038:c00).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d11",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: 'Run all' or 'Run before' after changes, runs sequentially from the top (gold chunk p045:c00).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d12",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete (p047:c01).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d13",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct, both parts (p037:c01). Filter 1.3 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d14",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete, verbatim (p022:c00). No inline [id] marker. Filter 1.1 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d15",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: syntax reason plus 'wide range of computing work', both in p039:c02. Filter 1.4 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "dn01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; reason only says the survey covers collection/cleaning time (true, p21), not deployment. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "dn02",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; BLS mentioned only as a data source (true, p32), no salary. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  }
+]

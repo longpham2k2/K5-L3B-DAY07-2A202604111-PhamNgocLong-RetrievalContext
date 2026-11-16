@@ -77,8 +77,11 @@ class ProviderTests(unittest.TestCase):
         err = lambda code: urllib.error.HTTPError("u", code, "x", {"Retry-After": "0"}, io.BytesIO(b"secret body"))
         ok = mock.MagicMock()
         ok.__enter__.return_value = io.BytesIO(b'{"ok": true}')
+        seen = []
         with mock.patch("urllib.request.urlopen", side_effect=[err(503), err(429), ok]):
-            self.assertEqual(providers.post_json("http://example.invalid", {}, {}, timeout=1), {"ok": True})
+            self.assertEqual(providers.post_json("http://example.invalid", {}, {}, timeout=1, on_retry=seen.append),
+                             {"ok": True})
+        self.assertEqual(seen, [{"status": 503, "wait_s": 0.0}, {"status": 429, "wait_s": 0.0}])
         with mock.patch("urllib.request.urlopen", side_effect=err(401)):
             with self.assertRaises(RuntimeError) as ctx:
                 providers.post_json("http://example.invalid", {}, {}, timeout=1)

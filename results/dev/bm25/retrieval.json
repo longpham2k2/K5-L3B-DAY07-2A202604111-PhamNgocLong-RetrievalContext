@@ -1,0 +1,416 @@
+{
+  "N": 15,
+  "k": 3,
+  "query": "original question",
+  "hit1": 13,
+  "hit3": 14,
+  "mrr3": 0.9,
+  "per_query": [
+    {
+      "query_id": "d01",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p021:c00",
+          "rank": 1,
+          "score": 39.2739,
+          "page": 21,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p021:c01",
+          "rank": 2,
+          "score": 15.3378,
+          "page": 21,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p020:c04",
+          "rank": 3,
+          "score": 13.0747,
+          "page": 20,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d02",
+      "first_gold_rank": null,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p027:c01",
+          "rank": 1,
+          "score": 11.2449,
+          "page": 27,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p019:c02",
+          "rank": 2,
+          "score": 8.3174,
+          "page": 19,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p038:c02",
+          "rank": 3,
+          "score": 7.5054,
+          "page": 38,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d03",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p023:c01",
+          "rank": 1,
+          "score": 40.0834,
+          "page": 23,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p023:c00",
+          "rank": 2,
+          "score": 17.3187,
+          "page": 23,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p029:c01",
+          "rank": 3,
+          "score": 6.3328,
+          "page": 29,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d04",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p023:c02",
+          "rank": 1,
+          "score": 22.4105,
+          "page": 23,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p023:c03",
+          "rank": 2,
+          "score": 12.0784,
+          "page": 23,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p022:c02",
+          "rank": 3,
+          "score": 8.742,
+          "page": 22,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d05",
+      "first_gold_rank": 2,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p024:c01",
+          "rank": 1,
+          "score": 25.4537,
+          "page": 24,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p024:c02",
+          "rank": 2,
+          "score": 10.0581,
+          "page": 24,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p028:c00",
+          "rank": 3,
+          "score": 8.0083,
+          "page": 28,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d06",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p025:c03",
+          "rank": 1,
+          "score": 26.3354,
+          "page": 25,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p049:c01",
+          "rank": 2,
+          "score": 8.3283,
+          "page": 49,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p025:c04",
+          "rank": 3,
+          "score": 8.2426,
+          "page": 25,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d07",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p028:c04",
+          "rank": 1,
+          "score": 21.9443,
+          "page": 28,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p028:c03",
+          "rank": 2,
+          "score": 13.2305,
+          "page": 28,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p027:c01",
+          "rank": 3,
+          "score": 12.4365,
+          "page": 27,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d08",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p029:c00",
+          "rank": 1,
+          "score": 12.7433,
+          "page": 29,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p029:c01",
+          "rank": 2,
+          "score": 8.8992,
+          "page": 29,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p058:c00",
+          "rank": 3,
+          "score": 7.5923,
+          "page": 58,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d09",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p031:c01",
+          "rank": 1,
+          "score": 19.0424,
+          "page": 31,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p031:c02",
+          "rank": 2,
+          "score": 11.81,
+          "page": 31,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p036:c00",
+          "rank": 3,
+          "score": 10.7621,
+          "page": 36,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d10",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p038:c00",
+          "rank": 1,
+          "score": 25.5973,
+          "page": 38,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p037:c01",
+          "rank": 2,
+          "score": 16.5684,
+          "page": 37,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p030:c01",
+          "rank": 3,
+          "score": 13.3846,
+          "page": 30,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d11",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p045:c00",
+          "rank": 1,
+          "score": 26.1224,
+          "page": 45,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p043:c00",
+          "rank": 2,
+          "score": 17.5398,
+          "page": 43,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p042:c00",
+          "rank": 3,
+          "score": 14.5692,
+          "page": 42,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d12",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p047:c01",
+          "rank": 1,
+          "score": 16.3269,
+          "page": 47,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p050:c00",
+          "rank": 2,
+          "score": 11.3685,
+          "page": 50,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p047:c00",
+          "rank": 3,
+          "score": 9.135,
+          "page": 47,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d13",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p037:c01",
+          "rank": 1,
+          "score": 17.2196,
+          "page": 37,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p037:c02",
+          "rank": 2,
+          "score": 12.7983,
+          "page": 37,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p038:c00",
+          "rank": 3,
+          "score": 12.5928,
+          "page": 38,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d14",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p022:c00",
+          "rank": 1,
+          "score": 7.6517,
+          "page": 22,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p021:c01",
+          "rank": 2,
+          "score": 4.5341,
+          "page": 21,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p019:c02",
+          "rank": 3,
+          "score": 3.8163,
+          "page": 19,
+          "hit": false
+        }
+      ]
+    },
+    {
+      "query_id": "d15",
+      "first_gold_rank": 1,
+      "results": [
+        {
+          "id": "openstax-pds-ch1:B:p039:c02",
+          "rank": 1,
+          "score": 15.858,
+          "page": 39,
+          "hit": true
+        },
+        {
+          "id": "openstax-pds-ch1:B:p039:c04",
+          "rank": 2,
+          "score": 13.6913,
+          "page": 39,
+          "hit": false
+        },
+        {
+          "id": "openstax-pds-ch1:B:p040:c00",
+          "rank": 3,
+          "score": 12.2136,
+          "page": 40,
+          "hit": false
+        }
+      ]
+    }
+  ],
+  "latency_ms_total": 6.3
+}

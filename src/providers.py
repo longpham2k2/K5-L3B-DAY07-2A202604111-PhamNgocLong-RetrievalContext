@@ -2,7 +2,7 @@
 
     provider = Provider.from_env()            # reads PROVIDER, MODEL, TEMPERATURE (+ API key)
     r = provider.complete(messages, schemas)  # Chat Completions-format messages and tool schemas
-    r -> {message, calls, finish, usage: {input_tokens, output_tokens}, latency_ms, model}
+    r -> {message, calls, finish, usage: {input_tokens, output_tokens}, latency_ms, retries, model}
 
 Changes vs Day 4: `ollama` (local, no key), temperature (default 0 for reproducible runs),
 normalized token usage and latency for time/cost reporting, retry also on transient 5xx.
@@ -30,7 +30,7 @@ RETRY_STATUS = {429, 500, 502, 503, 504}
 
 
 def post_json(url: str, headers: dict[str, str], payload: dict[str, Any], *, timeout: float,
-              retries: int = 4) -> dict[str, Any]:
+              retries: int = 4, on_retry: Any = None) -> dict[str, Any]:
     req = urllib.request.Request(url, data=json.dumps(payload).encode(),
                                  headers={"Content-Type": "application/json", **headers})
     for attempt in range(retries + 1):
@@ -41,7 +41,10 @@ def post_json(url: str, headers: dict[str, str], payload: dict[str, Any], *, tim
             # Rate limit or transient server error: same request again with backoff (Retry-After if given).
             if exc.code in RETRY_STATUS and attempt < retries:
                 wait = exc.headers.get("Retry-After") if exc.headers else None
-                time.sleep(float(wait) if wait and wait.isdigit() else 5 * 2 ** attempt)  # 5, 10, 20, 40 s
+                seconds = float(wait) if wait and wait.isdigit() else 5 * 2 ** attempt  # 5, 10, 20, 40 s
+                if on_retry:
+                    on_retry({"status": exc.code, "wait_s": seconds})
+                time.sleep(seconds)
                 continue
             # Do not print response bodies: they may contain account or request data.
             raise RuntimeError(f"provider returned HTTP {exc.code}; check model, key and quota") from exc
@@ -86,8 +89,10 @@ class Provider:
 
     def complete(self, messages: list[dict[str, Any]], schemas: list[dict[str, Any]] | None = None) -> dict[str, Any]:
         start = time.perf_counter()
+        self._retries: list[dict[str, Any]] = []
         result = self._anthropic(messages, schemas or []) if self.name == "anthropic" else self._chat(messages, schemas or [])
         result["latency_ms"] = round((time.perf_counter() - start) * 1000, 1)
+        result["retries"] = self._retries  # HTTP 429/5xx retries inside this call (time is included above)
         return result
 
     def _chat(self, messages: list[dict[str, Any]], schemas: list[dict[str, Any]]) -> dict[str, Any]:
@@ -95,7 +100,7 @@ class Provider:
         if schemas:
             payload["tools"] = schemas
         headers = {"Authorization": f"Bearer {self.key}"} if self.key else {}
-        data = post_json(self.url, headers, payload, timeout=self.timeout)
+        data = post_json(self.url, headers, payload, timeout=self.timeout, on_retry=self._retries.append)
         choice = data["choices"][0]
         message = choice["message"]
         calls = [{"id": c["id"], "name": c["function"]["name"], "arguments": c["function"]["arguments"]}
@@ -132,7 +137,7 @@ class Provider:
         if tools:
             payload["tools"] = tools
         data = post_json(self.url, {"x-api-key": self.key, "anthropic-version": "2023-06-01"}, payload,
-                         timeout=self.timeout)
+                         timeout=self.timeout, on_retry=self._retries.append)
         blocks = data["content"]
         calls = [{"id": b["id"], "name": b["name"], "arguments": json.dumps(b["input"], ensure_ascii=False)}
                  for b in blocks if b["type"] == "tool_use"]

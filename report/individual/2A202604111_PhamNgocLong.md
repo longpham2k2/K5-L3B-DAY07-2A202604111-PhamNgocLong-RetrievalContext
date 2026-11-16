@@ -10,7 +10,7 @@
         - python -m src.day6_adapter --day6-dir <repo Day 6>: xuất chunk và câu hỏi ra data/day6/.
         - python -m src.verify_evidence --pdf <PDF>: kiểm tra 20/20 evidence truy được về đúng một chunk và có trong trang PDF gốc.
         - python -m unittest discover -s tests -v: test offline.
-        - <lệnh chạy agent>
+        - python -m src.run --config configs/<name>.json --split dev
     - Phân chia dev/test: 24 câu. Dev 17 câu = 15 có đáp án (d01–d15) + 2 thiếu evidence (dn01, dn02). Test 7 câu = 5 có đáp án (t01–t05) + 2 thiếu evidence (tn01, tn02). 20 câu có đáp án giữ nguyên split của Day 6, cố định trước lần truy xuất đầu tiên. Gold page của test (26, 34, 40, 43, 54) không trùng trang nào của dev. 4 câu thiếu evidence viết mới cho Day 7. Agent chỉ đọc data/day6/cases.json (id, câu hỏi, filter section có sẵn ở 4 câu d13–d15, t05), không có gold hay đáp án. Mọi lựa chọn phương pháp và cấu hình chỉ dựa trên dev theo tiêu chí công bố trước; test chạy một lần cho baseline và cấu hình đã chốt. Day 6 đã chạy test dense (C) cùng lúc với dev, nhưng việc chọn C dựa trên dev; điều này được ghi rõ như một giới hạn.
 - Cách xác định câu có/thiếu evidence và tiêu chí chấm:
     - 20 câu có đáp án lấy từ Day 6 (15 dev d01–d15, 5 test t01–t05). Split cố định từ Day 6; test Day 6 chỉ chạy sau khi chốt cấu hình nên không dùng để chỉnh.
@@ -30,15 +30,20 @@
 
 | Cấu hình | Phương pháp, top-k, filter, rerank, context budget | Giả thuyết / thay đổi | Split | Hit@1 | Evidence Hit@3 | Context Evidence Rate | Thời gian / chi phí |
 |---|---|---|---|---|---|---|---|
-| Baseline | | | dev | | | | |
-| Phương pháp 2 | | | dev | | | | |
-| Phương pháp 3 | | | dev | | | | |
+| Baseline: Dense | Dense: all-MiniLM-L6-v2 (384 chiều) + pgvector cosine exact, index B Day 6 (135 chunk); top-k 3; filter `section` (chỉ 4 câu có sẵn); không rerank; budget 4.000 ký tự, tối đa 3 lượt search | Baseline = cấu hình C đã chọn ở Day 6; agent Gemini tự viết query | dev | 14/15 (93%) | 15/15 (100%) | 13/15 (87%) | median 8.6 s/câu; 43.9k in + 2.5k out token/17 câu; 2 lần 429 |
+| Phương pháp 2: BM25 | Sparse/lexical: Okapi BM25 (k1=1.5, b=0.75, tách từ `\w+`), cùng 135 chunk; top-k 3; filter `section`; không rerank; budget 4.000 ký tự | Query agent viết lại thường là từ khóa (vd "Anaconda 2020 survey") nên khớp từ chính xác có thể tốt hơn dense | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 6.6 s/câu; 43.1k in + 2.5k out; 1 lần 429 |
+| Phương pháp 3: Hybrid RRF | Dense + BM25 hợp nhất bằng Reciprocal Rank Fusion (k=60, 20 candidate mỗi bên); top-k 3; filter `section`; budget 4.000 ký tự | Kết hợp ngữ nghĩa và từ khóa để bù lỗi cho nhau; RRF dùng rank nên không cần chuẩn hóa score giữa cosine và BM25 | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 9.4 s/câu; 46.8k in + 2.8k out; 3 lần 429 |
 | Cải thiện 1 | | | dev | | | | |
 | Cải thiện 2 | | | dev | | | | |
 | Cấu hình đã chọn | | | test | | | | |
 | Baseline | | | test | | | | |
 
+Hit@1 và Evidence Hit@3 đo trên câu hỏi gốc, mỗi phương pháp xếp hạng một lần (không qua agent). Context Evidence Rate đo trên context cuối agent gửi cho model, gồm mọi lượt search với query do agent tự viết, nên có thể cao hơn Hit@3 (BM25: 14/15 → 15/15, agent tìm lại được d02 ở lượt 2) hoặc thấp hơn (Dense: 15/15 → 13/15, query viết lại làm mất evidence ở d01, d11). Thời gian là median mỗi câu trên 17 câu dev, chủ yếu là thời gian gọi Gemini; chênh lệch vài giây chịu ảnh hưởng của các lần HTTP 429.
+
 Một cấu hình có thể đồng thời là phương pháp mới và cải thiện; giải thích rõ. Báo `n/N` và tỷ lệ, ghi đơn vị thời gian/chi phí, so sánh test sau khi chốt. Nêu hai lỗi dev, nguyên nhân, cách thử và lý do chọn cấu hình:
+- Lỗi dev 1 – d01 (Dense): câu hỏi gốc xếp chunk gold p021:c00 ở hạng 1, nhưng agent tìm bằng query viết lại ("Anaconda 2020 survey data collection and cleaning", rồi "Anaconda 2020", "Anaconda"), dense không trả về chunk gold nên agent từ chối nhầm (answer 0).
+- Lỗi dev 2 – d11 (Dense): cùng nguyên nhân; câu gốc có gold p045:c00 ở hạng 3, nhưng hai query viết lại không lấy được, agent trả lời một phần từ p043:c00 (thiếu "Run before", answer 1).
+- Giả thuyết cải thiện: luôn dùng câu hỏi gốc cho lượt search đầu → Context Evidence của Dense lên 15/15. (điền kết quả sau khi chạy)
 
 ## Agent và đánh giá
 

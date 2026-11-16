@@ -1,0 +1,183 @@
+[
+  {
+    "query_id": "d01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "False abstention: answer is in the chapter (p21, 'about half'). Gold chunk p021:c00 is rank 1 for the original question, but the agent searched rewritten queries ('Anaconda 2020 survey data collection and cleaning', 'Anaconda 2020', 'Anaconda') that never returned it, so the final context (7 chunks) lacks the evidence. Abstain on an answerable question = 0.",
+    "answer_grade": 0,
+    "context_grade": 0,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d02",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: all five stages in the right order (problem definition, data collection, preparation, analysis, reporting). Cited p020:c04 states exactly this sequence ('includes problem definition, then data collection, preparation, analysis, and reporting'). Gold chunk was in context from the first search. Note: answer text has no inline [id] marker; the citation is only in the citations list.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d03",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: sevenfold Pop-Tart sales during Hurricane Charley, so extra supplies shipped ahead of Frances. p023:c01 states both facts.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d04",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: eight geographic regions, items warehoused and shipped within the region. Extra claim (ML predicts regional demand, pre-stocking) is also stated in p023:c02, so supported. No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d05",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct: measures traffic, parking occupancy, humidity, temperature (p024:c02) and controls the streetlights (p024:c01). Omits 'turn on only when necessary' but the question asks what they control, which is answered. Judgment call: grade 1 if you require that detail. No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d06",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: on-base percentage and slugging percentage, stated in p025:c03.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d07",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct with the condition: discrete if the campus caps classes at 200 seats or less, finite set 1..200. p028:c04 states it.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d08",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct: nominal has no ordering notion, ordinal has one. p029:c00 states the definition; p029:c01 supports 'ordering or degree' (ratings example).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d09",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: JSON suits user-server exchange, XML suits complex hierarchical data. p031:c01 states both reasons. No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d10",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: 409 items, seven attributes (names listed, all from p038:c00). No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d11",
+    "status": "answered",
+    "citation_support": [
+      false
+    ],
+    "reason": "Partly correct: says 'Run all' but omits 'Run before'. Cited p043:c00 only describes what Run all/Run before do; it does not say to use them after editing cells to avoid execution-order errors, so the recommendation is the model's inference. Gold chunk (p45) was never in context: both searches were rewritten queries, although the original question ranks it in top 3. Same failure pattern as d01.",
+    "answer_grade": 1,
+    "context_grade": 1,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d12",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: DataFrame for multi-column tabular data, Series for single-column. p047:c01 states it.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d13",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct, both parts: 150 items; 151 rows because of the header row. p037:c01 states both. Filter section 1.3 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d14",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete, near verbatim from p022:c00. Filter section 1.1 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d15",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: straightforward, intuitive syntax easy for beginners; extra 'skills apply to a wide range of computing work' also stated in p039:c02.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "dn01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; reason states the information is missing and adds no unsupported fact.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "dn02",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; reason only says BLS is mentioned as a dataset source (true, p32) and that no salary is given. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "name": "hybrid",
+  "retriever": "hybrid",
+  "top_k": 3,
+  "max_searches": 3,
+  "budget_chars": 4000,
+  "use_filter": true,
+  "rrf": {"k": 60, "candidates": 20},
+  "notes": "Baseline agent settings shared by all three methods; only the retriever differs. Budget counts chunk text characters shown to the model (chunks are up to 900 chars, so one top-3 search fits)."
+}

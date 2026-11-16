@@ -1,0 +1,9 @@
+{
+  "name": "bm25",
+  "retriever": "bm25",
+  "top_k": 3,
+  "max_searches": 3,
+  "budget_chars": 4000,
+  "use_filter": true,
+  "notes": "Baseline agent settings shared by all three methods; only the retriever differs. Budget counts chunk text characters shown to the model (chunks are up to 900 chars, so one top-3 search fits)."
+}
