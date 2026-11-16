@@ -1,0 +1,74 @@
+[
+  {
+    "query_id": "t01",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: past data inherits bias, so trained ML/AI make biased decisions (p026:c02). Context grade 2: gold chunk in context with page.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t02",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: key (left) and value (right) of the colon, stated in p034:c00. No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t03",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct with the condition: multiple lines that print without print() -> only the last line's output shows (p043:c00). No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t04",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct and complete: DataFrame.loc[] with filtering criteria inside the brackets (p054:c00); p055:c00 shows a loc filter example, also supports. Two model searches. No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t05",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: Tableau and PowerBI (p040:c00). Filter section 1.4 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "tn01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; no price claim. 4 HTTP 429 retries (75 s waiting) inside this run, then succeeded: latency 81.5 s, not a model issue.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "tn02",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; mentions the scatterplot example (true, p57-58) but gives no coefficient value. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  }
+]

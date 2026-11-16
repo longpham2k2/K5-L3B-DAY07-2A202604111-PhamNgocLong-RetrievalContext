@@ -31,23 +31,27 @@
 
 | Cấu hình | Phương pháp, top-k, filter, rerank, context budget | Giả thuyết / thay đổi | Split | Hit@1 | Evidence Hit@3 | Context Evidence Rate | Thời gian / chi phí |
 |---|---|---|---|---|---|---|---|
-| Baseline: Dense | Dense: all-MiniLM-L6-v2 (384 chiều) + pgvector cosine exact, index B Day 6 (135 chunk); top-k 3; filter `section` (chỉ 4 câu có sẵn); không rerank; budget 4.000 ký tự, tối đa 3 lượt search | Baseline = cấu hình C đã chọn ở Day 6; agent Gemini tự viết query | dev | 14/15 (93%) | 15/15 (100%) | 13/15 (87%) | median 8.6 s/câu; 43.9k in + 2.5k out token/17 câu; 2 lần 429 |
-| Phương pháp 2: BM25 | Sparse/lexical: Okapi BM25 (k1=1.5, b=0.75, tách từ `\w+`), cùng 135 chunk; top-k 3; filter `section`; không rerank; budget 4.000 ký tự | Query agent viết lại thường là từ khóa (vd "Anaconda 2020 survey") nên khớp từ chính xác có thể tốt hơn dense | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 6.6 s/câu; 43.1k in + 2.5k out; 1 lần 429 |
-| Phương pháp 3: Hybrid RRF | Dense + BM25 hợp nhất bằng Reciprocal Rank Fusion (k=60, 20 candidate mỗi bên); top-k 3; filter `section`; budget 4.000 ký tự | Kết hợp ngữ nghĩa và từ khóa để bù lỗi cho nhau; RRF dùng rank nên không cần chuẩn hóa score giữa cosine và BM25 | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 9.4 s/câu; 46.8k in + 2.8k out; 3 lần 429 |
-| Cải thiện 1: Dense + search câu gốc trước | Như Baseline Dense + `first_search=original`: hệ thống tìm bằng câu hỏi gốc trước, tính vào giới hạn 3 search | Lỗi d01, d11: câu gốc có gold hạng 1/3 nhưng agent chỉ tìm bằng query tự viết nên mất evidence → tìm câu gốc trước sẽ đưa evidence vào context | dev | 14/15 (93%) | 15/15 (100%) | 15/15 (100%) | median 2.1 s/câu; 28.5k in + 1.7k out (−35%); 1.41 lượt gọi model/câu; 3 lần 429 |
-| Cải thiện 2: BM25 + search câu gốc trước | Như BM25 + `first_search=original` | BM25 đã 15/15; đưa sẵn kết quả của câu gốc giúp model trả lời ít lượt gọi hơn, giảm token/thời gian mà giữ chất lượng | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 1.6 s/câu; 27.1k in + 1.8k out (−37%); 1.35 lượt gọi/câu; 3 lần 429 |
-| Cấu hình đã chọn | | | test | | | | |
-| Baseline | | | test | | | | |
+| Baseline: Dense | Dense: all-MiniLM-L6-v2 (384 chiều) + pgvector cosine exact, index B Day 6 (135 chunk); top-k 3; filter `section` (chỉ 4 câu có sẵn); không rerank; budget 4.000 ký tự, tối đa 3 lượt search | Baseline = cấu hình C đã chọn ở Day 6; agent Gemini tự viết query | dev | 14/15 (93%) | 15/15 (100%) | 13/15 (87%) | median 8.6 s/câu; 43.9k in + 2.5k out token/17 câu; ~$0.0195; 2 lần 429 |
+| Phương pháp 2: BM25 | Sparse/lexical: Okapi BM25 (k1=1.5, b=0.75, tách từ `\w+`), cùng 135 chunk; top-k 3; filter `section`; không rerank; budget 4.000 ký tự | Query agent viết lại thường là từ khóa (vd "Anaconda 2020 survey") nên khớp từ chính xác có thể tốt hơn dense | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 6.6 s/câu; 43.1k in + 2.5k out; ~$0.0193; 1 lần 429 |
+| Phương pháp 3: Hybrid RRF | Dense + BM25 hợp nhất bằng Reciprocal Rank Fusion (k=60, 20 candidate mỗi bên); top-k 3; filter `section`; budget 4.000 ký tự | Kết hợp ngữ nghĩa và từ khóa để bù lỗi cho nhau; RRF dùng rank nên không cần chuẩn hóa score giữa cosine và BM25 | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 9.4 s/câu; 46.8k in + 2.8k out; ~$0.0211; 3 lần 429 |
+| Cải thiện 1: Dense + search câu gốc trước | Như Baseline Dense + `first_search=original`: hệ thống tìm bằng câu hỏi gốc trước, tính vào giới hạn 3 search | Lỗi d01, d11: câu gốc có gold hạng 1/3 nhưng agent chỉ tìm bằng query tự viết nên mất evidence → tìm câu gốc trước sẽ đưa evidence vào context | dev | 14/15 (93%) | 15/15 (100%) | 15/15 (100%) | median 2.1 s/câu; 28.5k in + 1.7k out (−35%); ~$0.0128; 1.41 lượt gọi model/câu; 3 lần 429 |
+| Cải thiện 2: BM25 + search câu gốc trước | Như BM25 + `first_search=original` | BM25 đã 15/15; đưa sẵn kết quả của câu gốc giúp model trả lời ít lượt gọi hơn, giảm token/thời gian mà giữ chất lượng | dev | 13/15 (87%) | 14/15 (93%) | 15/15 (100%) | median 1.6 s/câu; 27.1k in + 1.8k out (−37%); ~$0.0125; 1.35 lượt gọi/câu; 3 lần 429 |
+| Cấu hình đã chọn: BM25 + search câu gốc trước | Như Cải thiện 2 (chốt trên dev, commit fcb91c7 trước khi chạy test) | Kiểm tra cấu hình đã chốt trên test | test | 4/5 (80%) | 5/5 (100%) | 5/5 (100%) | median 1.2 s/câu; 15.9k in + 0.6k out/7 câu; ~$0.0063; 1.71 lượt gọi model/câu; 1 lần 429 |
+| Baseline: Dense | Như Baseline dev | So sánh với cấu hình đã chọn | test | 4/5 (80%) | 5/5 (100%) | 5/5 (100%) | median 4.7 s/câu; 22.4k in + 1.0k out/7 câu; ~$0.0091; 3.29 lượt gọi model/câu; 4 lần 429 (tn01 chờ 75 s) |
 
-Hit@1 và Evidence Hit@3 đo trên câu hỏi gốc, mỗi phương pháp xếp hạng một lần (không qua agent). Context Evidence Rate đo trên context cuối agent gửi cho model, gồm mọi lượt search với query do agent tự viết, nên có thể cao hơn Hit@3 (BM25: 14/15 → 15/15, agent tìm lại được d02 ở lượt 2) hoặc thấp hơn (Dense: 15/15 → 13/15, query viết lại làm mất evidence ở d01, d11). Thời gian là median mỗi câu trên 17 câu dev, chủ yếu là thời gian gọi Gemini; chênh lệch vài giây chịu ảnh hưởng của các lần HTTP 429.
+Hit@1 và Evidence Hit@3 đo trên câu hỏi gốc, mỗi phương pháp xếp hạng một lần (không qua agent). Context Evidence Rate đo trên context cuối agent gửi cho model, gồm mọi lượt search với query do agent tự viết, nên có thể cao hơn Hit@3 (BM25: 14/15 → 15/15, agent tìm lại được d02 ở lượt 2) hoặc thấp hơn (Dense: 15/15 → 13/15, query viết lại làm mất evidence ở d01, d11). Thời gian là median mỗi câu trên 17 câu dev (test: 7 câu), chủ yếu là thời gian gọi Gemini; chênh lệch vài giây chịu ảnh hưởng của các lần HTTP 429. Chi phí thực tế là $0 vì dùng free tier của Gemini API; số ~$ là ước tính nếu dùng paid tier ($0.30/1M input token, $2.50/1M output token, theo bảng giá ngày 2026-11-16), tính từ token đã ghi trong trace. Theo ước tính này, cấu hình chọn tốn ~$0.74 cho 1.000 câu dev so với ~$1.15 của baseline (−36%).
 
-Một cấu hình có thể đồng thời là phương pháp mới và cải thiện; giải thích rõ. Báo `n/N` và tỷ lệ, ghi đơn vị thời gian/chi phí, so sánh test sau khi chốt. Nêu hai lỗi dev, nguyên nhân, cách thử và lý do chọn cấu hình:
+Mỗi retriever trả về id, nguồn, trang, section, score và rank (ghi trong `traces.json` và `retrieval.json`); filter sai khóa thì báo lỗi, Postgres không truy cập được thì dừng chương trình, không trả kết quả rỗng hoặc giả.
+
+Hybrid không hơn BM25 vì RRF ưu tiên đoạn được cả hai retriever tìm thấy: ở d02, gold là hạng 1 của dense nhưng không có trong top 20 của BM25 nên bị đẩy khỏi top 3; ở d05, gold hòa điểm với một đoạn khác và bị xếp sau theo id. Hybrid còn tốn token và thời gian nhất, nên không được chọn.
+
+Phân tích lỗi dev và chọn cấu hình:
 - Lỗi dev 1 – d01 (Dense): câu hỏi gốc xếp chunk gold p021:c00 ở hạng 1, nhưng agent tìm bằng query viết lại ("Anaconda 2020 survey data collection and cleaning", rồi "Anaconda 2020", "Anaconda"), dense không trả về chunk gold nên agent từ chối nhầm (answer 0).
 - Lỗi dev 2 – d11 (Dense): cùng nguyên nhân; câu gốc có gold p045:c00 ở hạng 3, nhưng hai query viết lại không lấy được, agent trả lời một phần từ p043:c00 (thiếu "Run before", answer 1).
 - Giả thuyết cải thiện: luôn dùng câu hỏi gốc cho lượt search đầu → Context Evidence của Dense lên 15/15.
 - Sau cải thiện:
     - Dense + search gốc đã sửa được 2 lỗi dev trước đó. Trong đó d01 thay đổi từ từ chối sai (0) thành đúng (2), và d11 thay đổi từ đúng một phần (1) thành đúng (2). Các gold chunk cũng được trả về từ lượt search đầu tiên.
-    - BM25 + search gốc giữ nguyên chất lượng 15/15 nhưng đã giảm được số lần gọi model xuống 1 nửa, input token xuống 37% và median thời gian giảm từ 6.6s còn 1.6s. Trong đó, 13/17 câu được trả lời ngay từ lượt search đầu.
+    - BM25 + search gốc giữ nguyên chất lượng 15/15 nhưng đã giảm được số lần gọi model xuống 1 nửa, input token giảm 37% và median thời gian giảm từ 6.6s còn 1.6s. Trong đó, 13/17 câu được trả lời ngay từ lượt search đầu.
 - Áp dụng tiêu chí chọn cấu hình: 
     - Trả về abstention cho 2 câu thiếu evidence: cả 5 cấu hình đều đạt, 2/2 và 0 lỗi.
     - Xếp theo grounded answer /2 cho 15 câu dev có đáp án: dense được 1.80 (13 câu đạt 2) trong khi các cấu hình khác được 2.00 (15 câu); chênh 2 câu > ngưỡng 1 câu nên dense bị loại ở bước này.
@@ -66,17 +70,17 @@ Một cấu hình có thể đồng thời là phương pháp mới và cải th
     - Tối đa 3 lượt search/câu (với `first_search=original`, lượt search câu gốc do hệ thống chạy cũng tính vào 3) và tối đa 6 lượt gọi model. Dừng khi gọi `final_answer`/`abstain`, hết lượt search hoặc hết lượt gọi. Nếu model trả lời bằng text không gọi tool thì nhắc 1 lần, lần 2 tính là abstain.
     - Context: mỗi lượt search thêm đoạn mới vào context đến khi đủ 4.000 ký tự; đoạn đã có không lặp lại, đoạn bị bỏ do budget được ghi trong trace.
     - Citation: `final_answer` chỉ được chấp nhận nếu mọi citation là đoạn model đã thấy; nếu không, ghi `abstain`/`invalid_citations` và giữ câu trả lời bị loại trong trace (dev: 0 lần).
-    - Lỗi: HTTP 429/5xx thử lại có backoff và ghi `retries`; lỗi còn lại ghi `status: "error"`, không thay bằng kết quả giả. Đã thử key sai, provider không kết nối được và Postgres không truy cập được. Dev: 0 lỗi trên 85 lượt chạy; 12 lần 429 được thử lại thành công.
+    - Lỗi: HTTP 429/5xx thử lại có backoff và ghi `retries`; lỗi còn lại ghi `status: "error"`, không thay bằng kết quả giả. Đã thử key sai, provider không kết nối được và Postgres không truy cập được. Dev: 0 lỗi trên 85 lượt chạy; 12 lần 429 được thử lại thành công. Test: 0 lỗi trên 14 lượt chạy; 5 lần 429 được thử lại thành công.
 
 | Cấu hình / split | Tool use | Số lượt gọi | Grounded answer 0/1/2 và trung bình | Citation hợp lệ | Câu có citation | Abstention đúng | Từ chối nhầm |
 |---|---|---|---|---|---|---|---|
 | Dense / dev | 17/17 | search 1/2/3 lượt: 12/2/3 câu; gọi model TB 2.82 (6 lần phải nhắc gọi tool) | 1/1/13 → 1.80 | 15/16 | 14/14 | 2/2 | 1/15 (d01) |
 | BM25 / dev | 17/17 | search 14/1/2; gọi model TB 2.76 (8 lần nhắc) | 0/0/15 → 2.00 | 16/16 | 15/15 | 2/2 | 0/15 |
 | Hybrid RRF / dev | 17/17 | search 14/1/2; gọi model TB 2.94 (11 lần nhắc) | 0/0/15 → 2.00 | 18/18 | 15/15 | 2/2 | 0/15 |
-| Dense + câu gốc / dev | 17/17 | search 13/2/3 (gồm lượt hệ thống); gọi model TB 1.41; model tự search TB 0.35 (0 lần nhắc) | 0/0/15 → 2.00 | 16/16 | 15/15 | 2/2 | 0/15 |
+| Dense + câu gốc / dev | 17/17 | search 13/2/2 (gồm lượt hệ thống); gọi model TB 1.41; model tự search TB 0.35 (0 lần nhắc) | 0/0/15 → 2.00 | 16/16 | 15/15 | 2/2 | 0/15 |
 | BM25 + câu gốc (đã chọn) / dev | 17/17 | search 13/2/2; gọi model TB 1.35; model tự search TB 0.35 (0 lần nhắc) | 0/0/15 → 2.00 | 17/17 | 15/15 | 2/2 | 0/15 |
-| BM25 + câu gốc (đã chọn) / test | | | | | | | |
-| Dense (baseline) / test | | | | | | | |
+| **BM25 + câu gốc (đã chọn) / test** | 7/7 | search 1/2/3 lượt: 4/1/2 câu; gọi model TB 1.71 | 0/0/5 → 2.00 | 5/5 | 5/5 | 2/2 | 0/5 |
+| Dense (baseline) / test | 7/7 | search 4/1/2; gọi model TB 3.29 | 0/0/5 → 2.00 | 6/6 | 5/5 | 2/2 | 0/5 |
 
 | Query ID | Loại câu | Tool call và kết quả | Câu trả lời và citation | Nhãn, lý do |
 |---|---|---|---|---|
@@ -85,15 +89,29 @@ Một cấu hình có thể đồng thời là phương pháp mới và cải th
 | d11 (Dense) | condition | 2 search viết lại, không lấy được p045:c00 | "Run all" [p043:c00] | 1 – thiếu "Run before"; p043:c00 không nói phải dùng sau khi sửa cell |
 | d02 (BM25 + câu gốc) | paraphrase | Câu gốc không lấy được gold (lệch từ); model search thêm 2 lượt, "data science cycle steps order" lấy được p020:c04 | 5 bước theo thứ tự [p020:c04] | 2 – đúng, nhưng cần thêm lượt search (rủi ro của BM25) |
 | dn01 (BM25 + câu gốc) | thiếu evidence | Câu gốc + 1 lượt search, chỉ tìm thấy khảo sát Anaconda về thu thập/làm sạch dữ liệu | Từ chối | Đúng – không đưa ra tỷ lệ cho deployment |
+| t01 (test, đã chọn) | paraphrase | Search câu gốc → p026:c02 hạng 1 | Dữ liệu cũ mang thiên lệch nên model cũng ra quyết định thiên lệch [p026:c02] | 2, citation đúng, context 2 |
+| t02 (test, đã chọn) | direct | Search câu gốc → p034:c00 hạng 1 | key và value [p034:c00] | 2, citation đúng, context 2 |
+| t03 (test, đã chọn) | condition | Search câu gốc → p043:c00 hạng 1 | Chỉ hiện output của dòng cuối [p043:c00] | 2, đúng điều kiện, context 2 |
+| t04 (test, đã chọn) | paraphrase | Câu gốc → p054:c00 hạng 2; model search thêm "DataFrame.loc filter condition rows" | DataFrame.loc[] [p054:c00] | 2, citation đúng, context 2 |
+| t05 (test, đã chọn) | filter (1.4) | Search câu gốc với filter section 1.4 → p040:c00 hạng 1 | Tableau và PowerBI [p040:c00] | 2, citation đúng, context 2 |
+| tn01 (test, đã chọn) | thiếu evidence | Câu gốc + 2 search ("Tableau PowerBI license cost price", "Tableau OR PowerBI") → chỉ có p040:c00 mô tả công cụ | Từ chối: không có giá license | Abstention đúng, không đưa ra con số |
+| tn02 (test, đã chọn) | thiếu evidence | Câu gốc + 2 search → p057–p058 (biểu đồ phân tán) | Từ chối: không có hệ số Pearson | Abstention đúng, không đưa ra số dù sách có nói "positive correlation" |
+| tn01 (test, Dense) | thiếu evidence | 3 search; lượt gọi model cuối gặp 4 lần HTTP 429 liên tiếp (chờ 5+10+20+40 s) rồi thành công | Từ chối | Abstention đúng; lỗi hạ tầng được thử lại và ghi trong trace (81.5 s) |
 
-- Đường dẫn trace, nhãn, lệnh chạy, thời gian và chi phí: `results/dev/<cấu hình>/` gồm `traces.json` (mọi lượt gọi model và search), `review.md` (bảng đọc), `reviews.json` (nhãn), `agent_metrics.json`, `summary.json`. Lệnh: `python -m src.run --config configs/<cấu hình>.json --split dev`, sau đó `python starter/agent_metrics.py --cases data/day6/cases.json --traces results/dev/<cấu hình>/traces.json --reviews results/dev/<cấu hình>/reviews.json --split dev --output results/dev/<cấu hình>/agent_metrics.json`. Thời gian và token xem bảng Retrieval; chi phí = token × giá Gemini ngày chạy.
-- Nhãn: 85 nhãn dev do Claude soạn nháp kèm lý do trích đoạn nguồn; tôi đọc lại từng citation và xác nhận kết quả đánh nhãn.
+Context grade trên test (5 câu có đáp án mỗi cấu hình): cấu hình chọn 5 câu mức 2; baseline Dense 5 câu mức 2; 0 câu ở mức 0 hoặc 1 (evidence đúng trang, đủ điều kiện và nguồn có trong context cuối). Lý do từng câu trong `results/test/*/reviews.json`.
+
+- Đường dẫn trace, nhãn, lệnh chạy, thời gian và chi phí: `results/dev/<cấu hình>/` và `results/test/{dense,bm25_orig}/` (test chạy bằng `--split test --final` sau khi commit fcb91c7) gồm `traces.json` (mọi lượt gọi model và search), `review.md` (bảng đọc), `reviews.json` (nhãn), `agent_metrics.json`, `summary.json`. Lệnh: `python -m src.run --config configs/<cấu hình>.json --split dev`, sau đó `python starter/agent_metrics.py --cases data/day6/cases.json --traces results/dev/<cấu hình>/traces.json --reviews results/dev/<cấu hình>/reviews.json --split dev --output results/dev/<cấu hình>/agent_metrics.json`. Thời gian và token xem bảng Retrieval; chi phí = token × giá Gemini ngày chạy.
+- Nhãn: 85 nhãn dev và 14 nhãn test do Claude soạn nháp kèm lý do trích đoạn nguồn; tôi đọc lại từng citation và xác nhận kết quả đánh nhãn.
 - Kết quả trước/sau, ví dụ lỗi, đánh đổi và giới hạn:
     - Trước/sau: tìm bằng câu gốc trước sửa 2 lỗi của Dense (d01: 0 → 2, d11: 1 → 2) và giảm khoảng một nửa số lượt gọi model ở cả Dense và BM25 (2.8 → 1.4), input token giảm 35–37%, median 6.6–8.6 s → 1.6–2.1 s. Ở baseline, model nhiều lần trả lời bằng text không gọi tool (6–11 lần/17 câu) nên tốn thêm lượt gọi; khi đã có sẵn đoạn của câu gốc thì không còn trường hợp này.
+    - Test: cấu hình đã chọn và baseline Dense đều đạt 5/5 câu đúng (2.00), 2/2 abstention, 0 từ chối nhầm. Khác biệt đo được là chi phí: cấu hình chọn dùng ít hơn 29% input token (15.9k so với 22.4k), khoảng một nửa lượt gọi model (1.71 so với 3.29) và median 1.2 s so với 4.7 s. Với tỷ lệ lỗi dev của Dense khoảng 13% (2/15), xác suất không lỗi trên 5 câu test là khoảng 49%, nên test quá nhỏ để phân biệt chất lượng; lợi ích về chất lượng của "search câu gốc trước" chỉ thấy trên dev (d01, d11).
     - Đánh đổi: BM25 + câu gốc rẻ và đơn giản nhất nhưng yếu với câu diễn đạt lại (d02 cần thêm 2 lượt); Dense + câu gốc xử lý ngay ở lượt đầu nhưng cần embedding model và Postgres.
-    - Giới hạn: dev đã bão hòa (4 cấu hình đều 2.00) nên không phân biệt được chất lượng giữa các cấu hình tốt; dev chỉ có 15 câu có đáp án, chủ yếu tra cứu một đoạn; nhãn do một người chấm; độ trễ bị ảnh hưởng bởi HTTP 429.
+    - Kết luận: agent chỉ đáng tin khi evidence thật sự vào context. Lỗi chính của baseline không nằm ở retriever mà ở việc agent tự viết lại query; tìm bằng câu gốc trước sửa lỗi này và giảm khoảng một nửa lượt gọi model. Cấu hình chọn (BM25 + câu gốc) giữ chất lượng như baseline trên test với chi phí thấp hơn và không cần vector store; điểm yếu là câu diễn đạt lại không trùng từ.
+    - Giới hạn: dev đã bão hòa (4 cấu hình đều 2.00) nên không phân biệt được chất lượng giữa các cấu hình tốt; dev chỉ có 15 câu có đáp án, chủ yếu tra cứu một đoạn; test chỉ có 5 câu có đáp án và 2 câu thiếu evidence; nhãn do một người chấm; độ trễ bị ảnh hưởng bởi HTTP 429; test giữ từ Day 6, nơi kết quả dense trên test đã được báo (không dùng để chỉnh). Cần benchmark lớn hơn có câu diễn đạt lại và multi-hop để xác nhận cải thiện.
 
 ## Thử thách nâng cao (nếu thực hiện)
+
+Không thực hiện.
 
 - Tài liệu, nguồn, quyền sử dụng, số trang và phiên bản:
 - Cách xử lý text, bảng, ảnh, biểu đồ; phạm vi index và phần chưa xử lý:

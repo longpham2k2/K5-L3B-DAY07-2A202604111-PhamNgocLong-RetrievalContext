@@ -36,7 +36,7 @@ The adapter stops if the benchmark is below the Day 7 minimum (dev 15+2, test 5+
 | dev | 15 (d01–d15) | 2 (dn01, dn02) | 17 |
 | test | 5 (t01–t05) | 2 (tn01, tn02) | 7 |
 
-The answerable questions come unchanged from Day 6. That test set was evaluated only after the Day 6 configuration was locked, so it was not used for tuning.
+The answerable questions come unchanged from Day 6. Day 6 ran the test split in the same run as dev and reported dense results on it, but chose its configuration on dev only. In Day 7 test was not used for tuning: every choice was made on dev, and test was run once (`--final`) after the configuration was committed.
 
 The no-evidence questions are hand-written and sit close to real content: the Anaconda survey (p21), the BLS source (p32), Tableau/PowerBI (p40) and the movie-gross scatterplot (p58). Each records `absence_reason` and `verification`, the search run over the text of every corpus page (PDF 19–63). Absence was checked on the full text, not on top-k results.
 

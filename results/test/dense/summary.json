@@ -1,0 +1,77 @@
+{
+  "config": {
+    "name": "dense",
+    "retriever": "dense",
+    "top_k": 3,
+    "max_searches": 3,
+    "budget_chars": 4000,
+    "use_filter": true,
+    "notes": "Baseline agent settings shared by all three methods; only the retriever differs. Budget counts chunk text characters shown to the model (chunks are up to 900 chars, so one top-3 search fits)."
+  },
+  "split": "test",
+  "started_utc": "2026-11-16T05:08:27+00:00",
+  "model": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "temperature": 0.0
+  },
+  "retriever": {
+    "retriever": "dense",
+    "backend": "pgvector exact cosine",
+    "strategy": "B",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384
+  },
+  "subset_ids": null,
+  "retrieval_original_query": {
+    "N": 5,
+    "k": 3,
+    "query": "original question",
+    "hit1": 4,
+    "hit3": 5,
+    "mrr3": 0.9,
+    "latency_ms_total": 121.9
+  },
+  "context_evidence": {
+    "n": 5,
+    "N": 5
+  },
+  "cases": 7,
+  "status": {
+    "answered": 5,
+    "abstain": 2
+  },
+  "stop_reasons": {
+    "final_answer": 5,
+    "abstain": 2
+  },
+  "errors": [],
+  "tool_use": {
+    "n": 7,
+    "N": 7
+  },
+  "searches_per_case": {
+    "1": 4,
+    "2": 1,
+    "3": 2
+  },
+  "model_calls_per_case": {
+    "2": 1,
+    "3": 3,
+    "4": 3
+  },
+  "avg_context_chars": 2105.3,
+  "latency_ms": {
+    "median": 4650.8,
+    "total": 103132.5
+  },
+  "tokens": {
+    "input": 22397,
+    "output": 956
+  },
+  "provider_retries": {
+    "429": 4
+  },
+  "cost_usd": null,
+  "cost_note": "prices not set: cost = tokens x price on the run date"
+}

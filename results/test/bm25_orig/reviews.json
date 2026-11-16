@@ -1,0 +1,73 @@
+[
+  {
+    "query_id": "t01",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete: past data inherits bias, so models make biased decisions (p026:c02). Answered from the initial original-question search.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t02",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: key and value (p034:c00). Answered from the initial search.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t03",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct with the condition: only the last line's output shows (p043:c00). No inline [id] marker.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t04",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: DataFrame.loc[] for rows meeting criteria (p054:c00). Original question ranked gold #2; model searched once more. Does not mention 'criteria inside the brackets' explicitly but 'filter rows that meet a condition' is the asked feature: complete.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "t05",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: Tableau and PowerBI (p040:c00). Filter section 1.4 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "tn01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained; reason cites p040:c00 only for 'Tableau and PowerBI are visualization applications' (true) and states no license cost is given. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "tn02",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after 3 searches; no coefficient value claimed. One 429 retry.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  }
+]

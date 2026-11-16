@@ -1,0 +1,66 @@
+[
+  {
+    "query_id": "t01",
+    "status": "answered",
+    "citation_support": [
+      null
+    ],
+    "reason": "",
+    "answer_grade": null,
+    "context_grade": null
+  },
+  {
+    "query_id": "t02",
+    "status": "answered",
+    "citation_support": [
+      null
+    ],
+    "reason": "",
+    "answer_grade": null,
+    "context_grade": null
+  },
+  {
+    "query_id": "t03",
+    "status": "answered",
+    "citation_support": [
+      null
+    ],
+    "reason": "",
+    "answer_grade": null,
+    "context_grade": null
+  },
+  {
+    "query_id": "t04",
+    "status": "answered",
+    "citation_support": [
+      null
+    ],
+    "reason": "",
+    "answer_grade": null,
+    "context_grade": null
+  },
+  {
+    "query_id": "t05",
+    "status": "answered",
+    "citation_support": [
+      null
+    ],
+    "reason": "",
+    "answer_grade": null,
+    "context_grade": null
+  },
+  {
+    "query_id": "tn01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "",
+    "abstention_correct": null
+  },
+  {
+    "query_id": "tn02",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "",
+    "abstention_correct": null
+  }
+]

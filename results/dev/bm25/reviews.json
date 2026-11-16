@@ -8,7 +8,7 @@
     "reason": "Correct: 'about half of the entire process' from p021:c00 (Anaconda 2020). First search (keyword-style) retrieved the gold chunk.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d02",
@@ -19,7 +19,7 @@
     "reason": "Correct and complete: five stages in order, as stated in p020:c04. BM25 missed it for the first query (vocabulary mismatch: 'stages/project/order'); the second search 'data science cycle steps order' found it.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d03",
@@ -30,7 +30,7 @@
     "reason": "Correct and complete: sevenfold Pop-Tart sales in the previous hurricane, extra supplies shipped ahead of Frances (p023:c01). No inline [id] marker.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d04",
@@ -41,7 +41,7 @@
     "reason": "Correct: eight regions, warehoused and shipped within region; extra ML demand-prediction claim also stated in p023:c02. No inline [id] marker.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d05",
@@ -53,7 +53,7 @@
     "reason": "Correct: four measured quantities (p024:c02) and control of streetlights (p024:c01). Omits 'only when necessary' (same judgment as dense d05).",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d06",
@@ -64,7 +64,7 @@
     "reason": "Correct and complete: on-base percentage and slugging percentage (p025:c03).",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d07",
@@ -75,7 +75,7 @@
     "reason": "Correct with the condition: 200-seat cap gives a finite set 1..200 (p028:c04).",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d08",
@@ -86,7 +86,7 @@
     "reason": "Correct: nominal has no ordering notion, ordinal has one (p029:c00).",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d09",
@@ -97,7 +97,7 @@
     "reason": "Correct and complete: JSON for user-server exchange, XML for complex hierarchical data (p031:c01).",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d10",
@@ -108,7 +108,7 @@
     "reason": "Correct: 409 items, seven attributes with names (p038:c00).",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d11",
@@ -119,7 +119,7 @@
     "reason": "Correct and complete: 'Run all' or 'Run before' after changes across cells, so code runs sequentially from the top; near verbatim from gold chunk p045:c00. No inline [id] marker.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d12",
@@ -130,7 +130,7 @@
     "reason": "Correct and complete (p047:c01). No inline [id] marker.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d13",
@@ -141,7 +141,7 @@
     "reason": "Correct, both parts: 150 items; 151 rows because of the header row (p037:c01). No inline [id] marker. Filter 1.3 applied.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d14",
@@ -152,7 +152,7 @@
     "reason": "Correct: goal is to communicate information effectively and facilitate better decision-making; added 'easy to comprehend and analyze' also in p022:c00. Filter 1.1 applied.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "d15",
@@ -163,7 +163,7 @@
     "reason": "Correct: straightforward, intuitive syntax easy for beginners; extra 'wide range of computing work' also in p039:c02. Filter 1.4 applied.",
     "answer_grade": 2,
     "context_grade": 2,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "dn01",
@@ -171,7 +171,7 @@
     "citation_support": [],
     "reason": "Abstained after 3 searches; reason correctly says the Anaconda survey covers collection/cleaning/analysis/communication (true, p21) but not deployment. No unsupported claim.",
     "abstention_correct": true,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   },
   {
     "query_id": "dn02",
@@ -179,6 +179,6 @@
     "citation_support": [],
     "reason": "Abstained after 3 searches; reason says BLS is only a dataset source (true, p32), no salary. No unsupported claim.",
     "abstention_correct": true,
-    "labeled_by": "draft: Claude (AI); to be verified by student"
+    "labeled_by": "draft: Claude (AI); verified by student"
   }
 ]

@@ -1,0 +1,1380 @@
+[
+  {
+    "query_id": "t01",
+    "split": "test",
+    "question": "Why can machine learning models trained on historical data make unfair decisions?",
+    "filter": null,
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "answered",
+    "answer": "Machine learning models can make unfair or biased decisions when trained on historical data because the past data itself inherits biases, which the algorithms then replicate [openstax-pds-ch1:B:p026:c02].",
+    "citations": [
+      "openstax-pds-ch1:B:p026:c02"
+    ],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 433,
+          "output_tokens": 23
+        },
+        "latency_ms": 1180.2,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "machine learning models historical data unfair decisions bias",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p026:c02",
+            "rank": 1,
+            "score": 0.4438,
+            "page": 26,
+            "section": "1.2",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p026:c01",
+            "rank": 2,
+            "score": 0.4074,
+            "page": 26,
+            "section": "1.2",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p023:c03",
+            "rank": 3,
+            "score": 0.3762,
+            "page": 23,
+            "section": "1.2",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p026:c02",
+          "openstax-pds-ch1:B:p026:c01",
+          "openstax-pds-ch1:B:p023:c03"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2112,
+        "latency_ms": 1189.7
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "stop",
+        "usage": {
+          "input_tokens": 1032,
+          "output_tokens": 49
+        },
+        "latency_ms": 983.3,
+        "retries": [],
+        "tool_calls": [],
+        "text": "Machine learning models can make unfair or biased decisions when trained on historical data because the past data itself inherits biases, which the algorithms then replicate [openstax-pds-ch1:B:p026:c02]."
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1092,
+          "output_tokens": 89
+        },
+        "latency_ms": 1443.4,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "Machine learning models can make unfair or biased decisions when trained on historical data because the past data itself inherits biases, which the algorithms then replicate [openstax-pds-ch1:B:p026:c02].",
+        "citations": [
+          "openstax-pds-ch1:B:p026:c02"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p026:c02",
+      "openstax-pds-ch1:B:p026:c01",
+      "openstax-pds-ch1:B:p023:c03"
+    ],
+    "context_chars": 2112,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p026:c02",
+        "page": 26,
+        "section": "1.2",
+        "text": "With these advances, many people have raised concerns about ethics and privacy. Who is allowed to collect\nthese data, and who has access to them? None of us want someone else to use our personal data (e.g., contact\ninformation, health records, location, photos, web search history) without our consent or without knowing the\nrisk of sharing our data. Machine learning algorithms and artificial intelligence are trained to make a decision\nbased on the past data, and when the past data itself inherits some bias, the trained machine learning\nalgorithms and artificial intelligence will make biased decisions as well. Thus, carefully attending to the process\nof collecting data and evaluating the bias of a trained results is critical. Ethics Throughout the Data Science\nCycle will discuss these and other ethical concerns and privacy issues in more depth."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p026:c01",
+        "page": 26,
+        "section": "1.2",
+        "text": "Trends and Issues in Data Science\nTechnology has made it possible to collect abundant amounts of data, which has led to challenges in the\nprocessing and analyzing of that data. But technology comes to the rescue again! Data scientists now use\nmachine learning to better understand the data, and artificial intelligence can make an automated, data-driven decision on a task. Decision-Making Using Machine Learning Basics and Deep Learning and AI Basics\nwill cover the details of machine learning and artificial intelligence."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p023:c03",
+        "page": 23,
+        "section": "1.2",
+        "text": "This predictive strategy has helped Amazon reduce the delivery\ntime for each product and extend the item selections for two-day shipping (Herrington, 2023). Data science is utilized extensively in finance as well. Detecting and managing fraudulent transactions is now\ndone by automated machine learning algorithms (IABAC, 2023). Based on the customer data and the patterns\nof past fraudulent activities, an algorithm can determine whether a transaction is fraudulent in real time. Multiple tech companies, such as IBM and Amazon Web Services, offer their own fraud detection solutions to\ntheir corporate clients. (For more information, see this online resource on Fraud Detection through Data\nAnalytics (https://openstax.org/r/iabac).)"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 1,
+    "n_model_calls": 3,
+    "usage": {
+      "input_tokens": 2557,
+      "output_tokens": 161
+    },
+    "latency_ms": 4796.8
+  },
+  {
+    "query_id": "t02",
+    "split": "test",
+    "question": "In JSON, what are the two fields on either side of a colon called?",
+    "filter": null,
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "answered",
+    "answer": "In JSON, the two fields on either side of a colon are called a key and a value, respectively (key : value).",
+    "citations": [
+      "openstax-pds-ch1:B:p034:c00"
+    ],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 436,
+          "output_tokens": 18
+        },
+        "latency_ms": 814.8,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "JSON colon fields",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p033:c02",
+            "rank": 1,
+            "score": 0.4199,
+            "page": 33,
+            "section": "1.3",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p034:c00",
+            "rank": 2,
+            "score": 0.389,
+            "page": 34,
+            "section": "1.3",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p031:c01",
+            "rank": 3,
+            "score": 0.3418,
+            "page": 31,
+            "section": "1.3",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p033:c02",
+          "openstax-pds-ch1:B:p034:c00",
+          "openstax-pds-ch1:B:p031:c01"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1416,
+        "latency_ms": 131.8
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "stop",
+        "usage": {
+          "input_tokens": 959,
+          "output_tokens": 51
+        },
+        "latency_ms": 693.3,
+        "retries": [],
+        "tool_calls": [],
+        "text": "In JSON, the two fields placed on the left and right of a colon are called a key and a value, respectively (key : value) [openstax-pds-ch1:B:p034:c00]."
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1021,
+          "output_tokens": 66
+        },
+        "latency_ms": 1100.2,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "In JSON, the two fields on either side of a colon are called a key and a value, respectively (key : value).",
+        "citations": [
+          "openstax-pds-ch1:B:p034:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p033:c02",
+      "openstax-pds-ch1:B:p034:c00",
+      "openstax-pds-ch1:B:p031:c01"
+    ],
+    "context_chars": 1416,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p033:c02",
+        "page": 33,
+        "section": "1.3",
+        "text": "Figure 1.7 CourseEvaluations.json Opened with Visual Studio Code\nNotice that the JSON format starts and ends with a pair of curly braces ({}). Inside, there are multiple pairs of"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p034:c00",
+        "page": 34,
+        "section": "1.3",
+        "text": "two fields that are separated by a colon (:). These two fields that are placed on the left and right of the colon\nare called a key and value, respectively,—key : value. For example, the dataset in Figure 1.7 has five pairs of\nkey-values with the key \"Semester\": \"Fall 2020\", \"Semester\": \"Spring 2021\", \"Semester\": \"Fall\n2021\", \"Semester\": \"Spring 2022\", \"Semester\": \"Fall 2022\", and \"Semester\": \"Spring 2023\"."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p031:c01",
+        "page": 31,
+        "section": "1.3",
+        "text": "Datasets can be stored in different formats, and it’s important to be able to recognize the most commonly\nused formats. This section covers three of the most often used formats for structured datasets—comma-separated values (CSV), JavaScript Object Notation (JSON), and Extensible Markup Language (XML). While\nCSV is the most intuitive way of encoding a tabular dataset, much of the data we would collect from the web\n(e.g., websites, mobile applications) is stored in the JSON or XML format. The reason is that JSON is the most\nsuitable for exchanging data between a user and a server, and XML is the most suitable for complex dataset\ndue to its hierarchy-friendly nature. Since they all store data as plain texts, you can open them using any\ntypical text editors such as Notepad, Visual Studio Code, Sublime Text, or VI editor."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 1,
+    "n_model_calls": 3,
+    "usage": {
+      "input_tokens": 2416,
+      "output_tokens": 135
+    },
+    "latency_ms": 2740.3
+  },
+  {
+    "query_id": "t03",
+    "split": "test",
+    "question": "In Jupyter Notebook, if several lines in one cell produce values without print(), which output is shown?",
+    "filter": null,
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "answered",
+    "answer": "If several lines in one cell produce values without print(), only the output from the last line will be shown.",
+    "citations": [
+      "openstax-pds-ch1:B:p043:c00"
+    ],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 440,
+          "output_tokens": 22
+        },
+        "latency_ms": 744.3,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Jupyter Notebook several lines output print",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p043:c00",
+            "rank": 1,
+            "score": 0.7377,
+            "page": 43,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p042:c01",
+            "rank": 2,
+            "score": 0.6656,
+            "page": 42,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p042:c00",
+            "rank": 3,
+            "score": 0.5872,
+            "page": 42,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p043:c00",
+          "openstax-pds-ch1:B:p042:c01",
+          "openstax-pds-ch1:B:p042:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1520,
+        "latency_ms": 62.7
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "stop",
+        "usage": {
+          "input_tokens": 1002,
+          "output_tokens": 47
+        },
+        "latency_ms": 893.7,
+        "retries": [],
+        "tool_calls": [],
+        "text": "If there are multiple lines of code that produce values without `print()`, only the output from the last line will be shown [openstax-pds-ch1:B:p043:c00]."
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1060,
+          "output_tokens": 62
+        },
+        "latency_ms": 1213.6,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "If several lines in one cell produce values without print(), only the output from the last line will be shown.",
+        "citations": [
+          "openstax-pds-ch1:B:p043:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p043:c00",
+      "openstax-pds-ch1:B:p042:c01",
+      "openstax-pds-ch1:B:p042:c00"
+    ],
+    "context_chars": 1520,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p043:c00",
+        "page": 43,
+        "section": "1.5",
+        "text": "Jupyter Notebook does not require print(). On Jupyter Notebook, the line a+b instead of print(a+b)\nalso prints the value of a+b as an output. But keep in mind that if there are multiple lines of code that\ntrigger printing some values, only the output from the last line will show.\nYou can also run multiple cells in bulk. Click Runtime on the menu, and you will see there are multiple ways of\nrunning multiple cells at once (Figure 1.17). The two commonly used ones are “Run all” and “Run before.” “Run\nall” runs all the cells in order from the top; “Run before” runs all the cells before the currently selected one."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p042:c01",
+        "page": 42,
+        "section": "1.5",
+        "text": "CONVENTIONAL PYTHON VERSUS JUPYTER NOTEBOOK SYNTAX\nWhile conventional Python syntax requires print() syntax to print something to the program console,"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p042:c00",
+        "page": 42,
+        "section": "1.5",
+        "text": "print (\"hello world!\")\nThe resulting output will look like this:\nhello world!\nYou can write a Python program across multiple cells and put text cells in between. Colab would treat all the\ncode cells as part of a single program, running from the top to bottom of the current Jupyter Notebook. For\nexample, the two code cells below run as if it is a single program.\nWhen running one cell at a time from the top, we see the following outputs under each cell.\na = 1\nprint (\"The a value in the first cell:\", a)\nThe resulting output will look like this:\nThe a value in the first cell: 1\nb = 3\nprint (\"a in the second cell:\", a)\nprint (\"b in the second cell:\", b)\na + b\nThe resulting output will look like this:\na in the second cell: 1\nb in the second cell: 3\n4"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 1,
+    "n_model_calls": 3,
+    "usage": {
+      "input_tokens": 2502,
+      "output_tokens": 131
+    },
+    "latency_ms": 2914.4
+  },
+  {
+    "query_id": "t04",
+    "split": "test",
+    "question": "Which Pandas feature do you use to keep only the rows that meet a condition?",
+    "filter": null,
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "answered",
+    "answer": "To keep only the rows that meet a specific condition, you can use Pandas' DataFrame.loc[] feature by placing the filtering criteria inside the brackets.",
+    "citations": [
+      "openstax-pds-ch1:B:p054:c00",
+      "openstax-pds-ch1:B:p055:c00"
+    ],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 436,
+          "output_tokens": 26
+        },
+        "latency_ms": 765.3,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Pandas keep rows that meet a condition filtering boolean indexing",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p054:c00",
+            "rank": 1,
+            "score": 0.5302,
+            "page": 54,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p055:c00",
+            "rank": 2,
+            "score": 0.502,
+            "page": 55,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p056:c00",
+            "rank": 3,
+            "score": 0.439,
+            "page": 56,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p054:c00",
+          "openstax-pds-ch1:B:p055:c00",
+          "openstax-pds-ch1:B:p056:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1685,
+        "latency_ms": 74.3
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1160,
+          "output_tokens": 22
+        },
+        "latency_ms": 935.1,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "DataFrame.loc[] filter rows condition",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p055:c00",
+            "rank": 1,
+            "score": 0.6292,
+            "page": 55,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p054:c00",
+            "rank": 2,
+            "score": 0.5459,
+            "page": 54,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p056:c00",
+            "rank": 3,
+            "score": 0.5225,
+            "page": 56,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p055:c00",
+          "openstax-pds-ch1:B:p054:c00",
+          "openstax-pds-ch1:B:p056:c00"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 1685,
+        "latency_ms": 41.5
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "stop",
+        "usage": {
+          "input_tokens": 1271,
+          "output_tokens": 74
+        },
+        "latency_ms": 1773.6,
+        "retries": [],
+        "tool_calls": [],
+        "text": "To keep only the rows that meet a specific condition, you can use Pandas' `DataFrame.loc[]` feature by placing the filtering criteria inside the brackets [openstax-pds-ch1:B:p054:c00, openstax-pds-ch1:B:p055:c00]."
+      },
+      {
+        "event": "model",
+        "step": 4,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1356,
+          "output_tokens": 93
+        },
+        "latency_ms": 1060.7,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "To keep only the rows that meet a specific condition, you can use Pandas' DataFrame.loc[] feature by placing the filtering criteria inside the brackets.",
+        "citations": [
+          "openstax-pds-ch1:B:p054:c00",
+          "openstax-pds-ch1:B:p055:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p054:c00",
+      "openstax-pds-ch1:B:p055:c00",
+      "openstax-pds-ch1:B:p056:c00"
+    ],
+    "context_chars": 1685,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p054:c00",
+        "page": 54,
+        "section": "1.5",
+        "text": "EXAMPLE 1.12\nProblem\nSelect a “petal_length” column of the IRIS dataset using iloc[].\nSolution\nThe following code in a new cell returns the “petal_length” column.\ndata.iloc[:, 2]\nThe resulting output will look like this:\n0 1.4\n1 1.4\n2 1.3\n3 1.5\n4 1.4\n...\n145 5.2\n146 5.0\n147 5.2\n148 5.4\n149 5.1\nName: petal_length, Length: 150, dtype: float64\nSearch Data Using Python Pandas\nTo search for some data entries that fulfill specific criteria (i.e., filter), you can use DataFrame.loc[] of\nPandas. When you indicate the filtering criteria inside the brackets, [], the output returns the filtered rows\nwithin the DataFrame. For example, the code below filters out the rows whose genre is comedy. Notice that the\noutput only has 307 out of the full 3,400 rows. You can check the output on your own, and you will see their\nGenre values are all “Comedy.”\ndata = pd.read_csv(\"[Path to ch1-movieprofit.csv]\")"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p055:c00",
+        "page": 55,
+        "section": "1.5",
+        "text": "EXAMPLE 1.13\nProblem\nUsing DataFrame.loc[], search for all the items of Iris-virginica species in the IRIS dataset.\nSolution\nThe following code returns a filtered DataFrame whose species are Iris-virginica. All such rows show up as\nan output.\ndata = pd.read_csv(\"[Path to ch1-iris.csv]\")\ndata.loc[data['species'] == 'Iris-virginica']\nThe resulting figure will look like this:"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p056:c00",
+        "page": 56,
+        "section": "1.5",
+        "text": "(Rows 109 through 149 not shown.)\nEXAMPLE 1.14\nProblem\nThis time, search for all the items whose species is Iris-virginica and whose sepal width is wider than 3.2.\nSolution\nYou can use a Boolean expression—in other words, an expression that evaluates as either True or\nFalse—inside data.loc[].\ndata.loc[(data['species'] == 'Iris-virginica') & (data['sepal_width'] > 3.2)]\nThe resulting output will look like this:"
+      }
+    ],
+    "n_searches": 2,
+    "n_model_searches": 2,
+    "n_model_calls": 4,
+    "usage": {
+      "input_tokens": 4223,
+      "output_tokens": 215
+    },
+    "latency_ms": 4650.8
+  },
+  {
+    "query_id": "t05",
+    "split": "test",
+    "question": "Which tools are known for sophisticated, interactive visualizations of high-dimensional data?",
+    "filter": {
+      "section": "1.4"
+    },
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "answered",
+    "answer": "Tableau and PowerBI are user-friendly applications known for offering sophisticated, interactive visualizations for high-dimensional data [openstax-pds-ch1:B:p040:c00].",
+    "citations": [
+      "openstax-pds-ch1:B:p040:c00"
+    ],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 435,
+          "output_tokens": 24
+        },
+        "latency_ms": 658.1,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "sophisticated interactive visualizations high-dimensional data tools",
+        "filter": {
+          "section": "1.4"
+        },
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p040:c01",
+            "rank": 1,
+            "score": 0.694,
+            "page": 40,
+            "section": "1.4",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p040:c00",
+            "rank": 2,
+            "score": 0.6834,
+            "page": 40,
+            "section": "1.4",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p038:c02",
+            "rank": 3,
+            "score": 0.4207,
+            "page": 38,
+            "section": "1.4",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p040:c01",
+          "openstax-pds-ch1:B:p040:c00",
+          "openstax-pds-ch1:B:p038:c02"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1889,
+        "latency_ms": 66.3
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1001,
+          "output_tokens": 84
+        },
+        "latency_ms": 931.0,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "Tableau and PowerBI are user-friendly applications known for offering sophisticated, interactive visualizations for high-dimensional data [openstax-pds-ch1:B:p040:c00].",
+        "citations": [
+          "openstax-pds-ch1:B:p040:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p040:c01",
+      "openstax-pds-ch1:B:p040:c00",
+      "openstax-pds-ch1:B:p038:c02"
+    ],
+    "context_chars": 1889,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p040:c01",
+        "page": 40,
+        "section": "1.4",
+        "text": "In general, data visualization aims to make complex data more understandable and usable. The tools and\ntechnology described in this section offer a variety of ways to go about creating visualizations that are most\naccessible. Refer to Visualizing Data for a deeper discussion of the types of visualizations—charts, graphs,\nboxplots, histograms, etc.—that can be generated to help find the meaning in data."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p040:c00",
+        "page": 40,
+        "section": "1.4",
+        "text": "EXPLORING FURTHER\nSpecialized Programming Languages\nOther programming languages are more specialized for a particular task with data. These include SQL,\nScala, and Julia, among others, as briefly described in this article on “The Nine Top Programming Languages\nfor Data Science (https://openstax.org/r/9top).”\nOther Data Analysis/Visualization Tools\nThere are a few other data analysis tools that are strong in data visualization. Tableau (https://openstax.org/r/\ntableau1) and PowerBI (https://openstax.org/r/micro) are user-friendly applications for data visualization. They\nare known for offering more sophisticated, interactive visualizations for high-dimensional data. They also offer\na relatively easy user interface for compiling an analysis dashboard. Both allow users to run a simple data\nanalysis as well before visualizing the results, similar to Excel."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p038:c02",
+        "page": 38,
+        "section": "1.4",
+        "text": "• 1.4.3 Explain the uses of various data analysis tools used in data science applications.\nTechnology empowers data analysts, researchers, and organizations to leverage data, extract actionable\ninsights, and make decisions that optimize processes and improve outcomes in many areas of our lives.\nSpecifically, technology provides the tools, platforms, and algorithms that enable users to efficiently process\nand analyze data—especially complex datasets. The choice of technology used for a data science project will\nvary depending on the goals of the project, the size of the datasets, and the kind of analysis required."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 1,
+    "n_model_calls": 2,
+    "usage": {
+      "input_tokens": 1436,
+      "output_tokens": 108
+    },
+    "latency_ms": 1655.7
+  },
+  {
+    "query_id": "tn01",
+    "split": "test",
+    "question": "How much does a Tableau or PowerBI license cost per user per month?",
+    "filter": null,
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng trong tài liệu để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 435,
+          "output_tokens": 25
+        },
+        "latency_ms": 723.3,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Tableau PowerBI license cost per user per month",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p045:c02",
+            "rank": 1,
+            "score": 0.1979,
+            "page": 45,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p038:c03",
+            "rank": 2,
+            "score": 0.1901,
+            "page": 38,
+            "section": "1.4",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p046:c00",
+            "rank": 3,
+            "score": 0.188,
+            "page": 46,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p045:c02",
+          "openstax-pds-ch1:B:p038:c03",
+          "openstax-pds-ch1:B:p046:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1841,
+        "latency_ms": 60.0
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1047,
+          "output_tokens": 21
+        },
+        "latency_ms": 77083.6,
+        "retries": [
+          {
+            "status": 429,
+            "wait_s": 5
+          },
+          {
+            "status": 429,
+            "wait_s": 10
+          },
+          {
+            "status": 429,
+            "wait_s": 20
+          },
+          {
+            "status": 429,
+            "wait_s": 40
+          }
+        ],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Tableau PowerBI license cost",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p046:c00",
+            "rank": 1,
+            "score": 0.211,
+            "page": 46,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p033:c00",
+            "rank": 2,
+            "score": 0.1941,
+            "page": 33,
+            "section": "1.3",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p041:c02",
+            "rank": 3,
+            "score": 0.1878,
+            "page": 41,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p033:c00",
+          "openstax-pds-ch1:B:p041:c02"
+        ],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p046:c00"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 3434,
+        "latency_ms": 298.5
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1614,
+          "output_tokens": 17
+        },
+        "latency_ms": 1025.4,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Tableau",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p040:c00",
+            "rank": 1,
+            "score": 0.3199,
+            "page": 40,
+            "section": "1.4",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p038:c03",
+            "rank": 2,
+            "score": 0.2628,
+            "page": 38,
+            "section": "1.4",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p041:c02",
+            "rank": 3,
+            "score": 0.2503,
+            "page": 41,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p038:c03",
+          "openstax-pds-ch1:B:p041:c02"
+        ],
+        "dropped_for_budget": [
+          "openstax-pds-ch1:B:p040:c00"
+        ],
+        "context_chars_after": 3434,
+        "latency_ms": 631.0
+      },
+      {
+        "event": "model",
+        "step": 4,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1714,
+          "output_tokens": 30
+        },
+        "latency_ms": 1713.9,
+        "retries": [],
+        "tool_calls": [
+          "abstain"
+        ],
+        "text": null
+      },
+      {
+        "event": "abstain",
+        "reason": "The chapter does not contain information about the cost of Tableau or PowerBI licenses."
+      }
+    ],
+    "abstain_reason": "The chapter does not contain information about the cost of Tableau or PowerBI licenses.",
+    "stop": "abstain",
+    "context_ids": [
+      "openstax-pds-ch1:B:p045:c02",
+      "openstax-pds-ch1:B:p038:c03",
+      "openstax-pds-ch1:B:p046:c00",
+      "openstax-pds-ch1:B:p033:c00",
+      "openstax-pds-ch1:B:p041:c02"
+    ],
+    "context_chars": 3434,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p045:c02",
+        "page": 45,
+        "section": "1.5",
+        "text": "EXPLORING FURTHER\nInstalling Pandas on Your Computer\nIf you wish to install Pandas on your own computer, refer to the installation page of the Pandas website\n(https://openstax.org/r/pyd).\nLoad Data Using Python Pandas\nThe first step for data analysis is to load the data of your interest to your Notebook. Let’s create a folder on\nGoogle Drive where you can keep a CSV file for the dataset and a Notebook for data analysis. Download a"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p038:c03",
+        "page": 38,
+        "section": "1.4",
+        "text": "Spreadsheet Programs\nSpreadsheet programs such as Excel and Google Sheets are software applications consisting of electronic\nworksheets with rows and columns where data can be entered, manipulated, and calculated. Spreadsheet\nprograms offer a variety of functions for data manipulation and can be used to easily create charts and tables.\nExcel is one of the most widely used spreadsheet programs, and as part of Microsoft Office, it integrates well\nwith other Office products. Excel was first released by Microsoft in 1987, and it has become one of the most\npopular choices for loading and analyzing tabular data in a spreadsheet format. You are likely to have used\nExcel in some form or other —perhaps to organize the possible roommate combinations in your dorm room or"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p046:c00",
+        "page": 46,
+        "section": "1.5",
+        "text": "public dataset, ch1-movieprofit.csv (https://openstax.org/r/movieprofit), and store it in a Google Drive folder.\nThen open a new Notebook in that folder by entering that folder and clicking New > More > Google\nColaboratory.\nOpen the Notebook and allow it to access files in your Google Drive by following these steps:\nFirst, click the Files icon on the side tab (Figure 1.18).\nFigure 1.18 Side Tab of Colab\nThen click the Mount Drive icon (Figure 1.19) and select “Connect to Google Drive” on the pop-up window.\nFigure 1.19 Features under Files on Colab\nNotice that a new cell has been inserted on the Notebook as a result (Figure 1.20)."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p033:c00",
+        "page": 33,
+        "section": "1.3",
+        "text": "Figure 1.5 ch1-courseEvaluations.csv Opened with Microsoft Excel (Used with permission from Microsoft)\nHOW TO DOWNLOAD AND OPEN A DATASET FROM THE CH1-DATA SPREADSHEET IN THIS TEXT\nA spreadsheet file accompanies each chapter of this textbook. The files include multiple tabs corresponding\nto a single dataset in the chapter. For example, the spreadsheet file for this chapter (https://openstax.org/r/\nspreadsheet4) is shown in Figure 1.6. Notice that it includes multiple tabs with the names\n“ch1-courseEvaluations.csv,” “ch1-cancerdoc.csv,” and “ch1-riris.csv,” which are the names of each dataset. Figure 1.6 The dataset spreadsheet file for Chapter 1 (Used with permission from Microsoft)\nTo save each dataset as a separate CSV file, choose the tab of your interest and select File > Save As ... > CSV\nFile Format. This will only save the current tab as a CSV file."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p041:c02",
+        "page": 41,
+        "section": "1.5",
+        "text": "For further information, see the Google Colaboratory\nEcosystem (https://openstax.org/r/1pp) animation.\nFigure 1.15 Install Google Colaboratory (Colab)\nNow click New > More > Google Laboratory. A new, empty Jupyter Notebook will show up as in Figure 1.16.\nFigure 1.16 Google Colaboratory Notebook\nThe gray area with the play button is called a cell. A cell is a block where you can type either code or plain text.\nNotice that there are two buttons on top of the first cell—“+ Code” and “+ Text.” These two buttons add a code\nor text cell, respectively. A code cell is for the code you want to run; a text cell is to add any text description or\nnote.\nLet’s run a Python program on Colab. Type the following code in a code cell."
+      }
+    ],
+    "n_searches": 3,
+    "n_model_searches": 3,
+    "n_model_calls": 4,
+    "usage": {
+      "input_tokens": 4810,
+      "output_tokens": 93
+    },
+    "latency_ms": 81536.3
+  },
+  {
+    "query_id": "tn02",
+    "split": "test",
+    "question": "What is the Pearson correlation coefficient between US gross and worldwide gross in the movie profit dataset?",
+    "filter": null,
+    "config": "dense",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "dense",
+      "backend": "pgvector exact cosine",
+      "strategy": "B",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384
+    },
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng trong tài liệu để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 438,
+          "output_tokens": 25
+        },
+        "latency_ms": 1110.3,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Pearson correlation coefficient US gross worldwide gross movie profit dataset",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p057:c01",
+            "rank": 1,
+            "score": 0.4482,
+            "page": 57,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p058:c00",
+            "rank": 2,
+            "score": 0.4386,
+            "page": 58,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p047:c00",
+            "rank": 3,
+            "score": 0.3502,
+            "page": 47,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p057:c01",
+          "openstax-pds-ch1:B:p058:c00",
+          "openstax-pds-ch1:B:p047:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2092,
+        "latency_ms": 208.0
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1170,
+          "output_tokens": 26
+        },
+        "latency_ms": 887.1,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "correlation coefficient movie profit dataset US_Gross Worldwide_Gross",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p057:c01",
+            "rank": 1,
+            "score": 0.4846,
+            "page": 57,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p058:c00",
+            "rank": 2,
+            "score": 0.4697,
+            "page": 58,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p047:c00",
+            "rank": 3,
+            "score": 0.3996,
+            "page": 47,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p057:c01",
+          "openstax-pds-ch1:B:p058:c00",
+          "openstax-pds-ch1:B:p047:c00"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 2092,
+        "latency_ms": 47.6
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1285,
+          "output_tokens": 18
+        },
+        "latency_ms": 912.6,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Pearson correlation coefficient",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p057:c01",
+            "rank": 1,
+            "score": 0.302,
+            "page": 57,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p058:c00",
+            "rank": 2,
+            "score": 0.2744,
+            "page": 58,
+            "section": "1.5",
+            "retriever": "dense"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p049:c01",
+            "rank": 3,
+            "score": 0.1857,
+            "page": 49,
+            "section": "1.5",
+            "retriever": "dense"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p049:c01"
+        ],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p057:c01",
+          "openstax-pds-ch1:B:p058:c00"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 2681,
+        "latency_ms": 60.6
+      },
+      {
+        "event": "model",
+        "step": 4,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1560,
+          "output_tokens": 44
+        },
+        "latency_ms": 1611.7,
+        "retries": [],
+        "tool_calls": [
+          "abstain"
+        ],
+        "text": null
+      },
+      {
+        "event": "abstain",
+        "reason": "The chapter mentions the US gross and worldwide gross of the movie profit dataset in a scatterplot example, but it does not state their Pearson correlation coefficient."
+      }
+    ],
+    "abstain_reason": "The chapter mentions the US gross and worldwide gross of the movie profit dataset in a scatterplot example, but it does not state their Pearson correlation coefficient.",
+    "stop": "abstain",
+    "context_ids": [
+      "openstax-pds-ch1:B:p057:c01",
+      "openstax-pds-ch1:B:p058:c00",
+      "openstax-pds-ch1:B:p047:c00",
+      "openstax-pds-ch1:B:p049:c01"
+    ],
+    "context_chars": 2681,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p057:c01",
+        "page": 57,
+        "section": "1.5",
+        "text": "Suppose you want to draw a scatterplot between “US_Gross_Million” and “Worldwide_Gross_Million” of the\nmovie profit dataset (ch1-movieprofit.csv (https://openstax.org/r/movieprofit)). You will investigate scatterplots\nin more detail in Correlation and Linear Regression Analysis. The example code below draws such a scatterplot\nusing the method scatter(). scatter() takes the two columns of your interest—data[\"US_Gross_Million\"]\nand data[\"Worldwide_Gross_Million\"]—as the inputs and assigns them for the x- and y-axes, respectively.\ndata = pd.read_csv(\"[Path to ch1-movieprofit.csv]\")"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p058:c00",
+        "page": 58,
+        "section": "1.5",
+        "text": "# draw a scatterplot using matplotlib’s scatter()\nplt.scatter(data[\"US_Gross_Million\"], data[\"Worldwide_Gross_Million\"])\nThe resulting output will look like this:\nNotice that it simply has a set of dots on a white plane. The plot itself does not show what each axis\nrepresents, what this plot is about, etc. Without them, it is difficult to capture what the plot shows. You can set\nthese with the following code. The resulting plot below indicates that there is a positive correlation between\ndomestic gross and worldwide gross.\n# draw a scatterplot\nplt.scatter(data[\"US_Gross_Million\"], data[\"Worldwide_Gross_Million\"])\n# set the title\nplt.title(\"Domestic vs. Worldwide Gross\")\n# set the x-axis label\nplt.xlabel(\"Domestic\")\n# set the y-axis label\nplt.ylabel(\"Worldwide\")\nThe resulting output will look like this:"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p047:c00",
+        "page": 47,
+        "section": "1.5",
+        "text": "Figure 1.21 Copying the Path of a CSV File Located in a Google Drive Folder\nNow replace [Path] with the copied path in the below code. Run the code and you will see the dataset has been\nloaded as a table and stored as a Python variable data.\n# import Pandas and assign an abbreviated identifier \"pd\"\nimport pandas as pd\ndata = pd.read_csv(\"[Path]\")\ndata\nThe resulting output will look like this:\nThe read_csv() method in Pandas loads a CSV file and stores it as a DataFrame. A DataFrame is a data type\nthat Pandas uses to store multi-column tabular data. Therefore, the variable data holds the table in\nch1-movieprofit.csv (https://openstax.org/r/movieprofit) in the form of a Pandas DataFrame."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p049:c01",
+        "page": 49,
+        "section": "1.5",
+        "text": "describe() returns a table whose columns are a subset of the columns in the entire dataset and whose rows\nare different statistics. The statistics include the number of unique values in a column (count), mean (mean),\nstandard deviation (std), minimum and maximum values (min/max), and different quartiles\n(25%/50%/75%), which you will learn about in Measures of Variation. Using this representation, you can\ncompute such statistics of different columns easily.\nEXAMPLE 1.10\nProblem\nSummarize the IRIS dataset using describe() of ch1-iris.csv (https://openstax.org/r/iris) you loaded in the"
+      }
+    ],
+    "n_searches": 3,
+    "n_model_searches": 3,
+    "n_model_calls": 4,
+    "usage": {
+      "input_tokens": 4453,
+      "output_tokens": 113
+    },
+    "latency_ms": 4838.2
+  }
+]
