@@ -31,3 +31,18 @@ Index một tài liệu thực tế từ **100 trang** có bảng, ảnh và bi�
 ![Các bước thử nghiệm trên dev và đánh giá trên test](assets/experiment-loop.svg)
 
 Nộp code, cách chạy, cấu hình, benchmark, trace và [báo cáo](report/individual/MSSV_HoTen.md). Thời gian ở [checkpoints](CHECKPOINTS.md) là gợi ý, có thể điều chỉnh theo lớp và phạm vi thử nghiệm.
+
+## Corpus
+
+OpenStax *Principles of Data Science*, Chapter 1 "What Are Data and Data Science?". Authors: Shaun V. Ault, Soohyun Nam Liao, Larry Musolino (senior contributing authors). The corpus is PDF pages 19–63 (printed pages 9–53), 45 pages. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+The Day 6 repo's `data/manifest.json` records the source, the page list and the counting rule. The PDF is not committed. To reproduce:
+1. Download it from https://openstax.org/details/books/principles-data-science.
+2. Save it as `data/raw/Principles-of-Data-Science-WEB.pdf` in the Day 6 repo.
+3. Check it is the same version: `shasum -a 256` must print `6b47205459a2f4e25a2b2a86369e674a26a5ae566a4cc428dd31047670692398` (37,337,845 bytes). A newer OpenStax PDF may shift page numbers.
+
+Excerpts of the book are stored in `data/day6/` (chunk text in `chunks.json`; evidence quotes in `questions.json` and `evidence_map.json`) and in any agent traces or results this repo produces. They come from *Principles of Data Science* by OpenStax, licensed CC BY-NC-SA 4.0. Access for free at openstax.org.
+
+Changes: the text was extracted from the PDF, normalized (whitespace, running headers and footers removed, hyphenated words re-joined) and split into paragraph chunks. These excerpts are shared under the same CC BY-NC-SA 4.0 license, for non-commercial educational use only.
+
+The benchmark questions, expected answers and absence reasons were written for this lab and are not part of the book.
