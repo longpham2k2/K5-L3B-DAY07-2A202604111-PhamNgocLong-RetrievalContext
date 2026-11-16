@@ -115,6 +115,21 @@ class AgentLoopTests(unittest.TestCase):
         self.assertEqual(len(search["dropped_for_budget"]), 1)
         self.assertLessEqual(t["context_chars"], 90)
 
+    def test_first_search_original_runs_before_model_and_counts_toward_limit(self):
+        cfg = {**CFG, "first_search": "original", "max_searches": 2}
+        p = FakeProvider([[("search_chapter", {"query": "data"})], [("search_chapter", {"query": "more"})],
+                          [("final_answer", {"answer": "About half [doc:B:p021:c00].", "citations": ["doc:B:p021:c00"]})]])
+        t = run_agent(case(question="How long is data collection and cleaning?"), p, self.bm25, cfg)
+        searches = [e for e in t["events"] if e["event"] == "search"]
+        self.assertEqual([(e["by"], e["query"]) for e in searches],
+                         [("system", "How long is data collection and cleaning?"), ("model", "data")])
+        self.assertEqual((t["n_searches"], t["n_model_searches"]), (2, 1))
+        self.assertTrue(any(e["event"] == "search_limit" for e in t["events"]))  # 3rd search refused
+        first_user = p.seen[0][1]["content"]
+        self.assertIn("doc:B:p021:c00", first_user)             # initial passages shown up front
+        self.assertIn("1 more time", first_user)
+        self.assertEqual(t["status"], "answered")
+
     def test_agent_never_receives_gold_fields(self):
         p = FakeProvider([[("abstain", {"reason": "-"})]])
         run_agent(case(), p, self.bm25, CFG)

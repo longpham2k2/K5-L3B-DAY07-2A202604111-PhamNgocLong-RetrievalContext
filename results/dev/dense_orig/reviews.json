@@ -1,0 +1,184 @@
+[
+  {
+    "query_id": "d01",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Fixed vs dense baseline: initial search with the original question put gold p021:c00 in context; 'about half' correct. No model search needed.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d02",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p020:c04 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d03",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p023:c01 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d04",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p023:c02 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d05",
+    "status": "answered",
+    "citation_support": [
+      true,
+      true
+    ],
+    "reason": "Correct: four measured quantities and control of streetlights (p024:c01, c02). Omits 'only when necessary' (same judgment as dense/bm25 d05).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d06",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p025:c03 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d07",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p028:c04 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d08",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct: no ordering vs ordering notion (p029:c00). Adds 'or degree', which is in p029:c01 (not cited); minor.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d09",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p031:c01 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d10",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p038:c00 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d11",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Fixed vs dense baseline: gold p045:c00 came from the initial original-question search; 'Run all' or 'Run before', sequential from the top. Complete.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d12",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p047:c01 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d13",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct, both parts (p037:c01). Model searched once more after the initial search. Filter 1.3 applied.",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d14",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p022:c00 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "d15",
+    "status": "answered",
+    "citation_support": [
+      true
+    ],
+    "reason": "Correct and complete; cited p039:c02 states it. Answered from the initial original-question search (no model search).",
+    "answer_grade": 2,
+    "context_grade": 2,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "dn01",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after the initial search plus 2 model searches; reason (survey covers collection/cleaning, not deployment) is true for p21. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  },
+  {
+    "query_id": "dn02",
+    "status": "abstain",
+    "citation_support": [],
+    "reason": "Abstained after the initial search plus 2 model searches; no salary claim. No unsupported claim.",
+    "abstention_correct": true,
+    "labeled_by": "draft: Claude (AI); verified by student"
+  }
+]

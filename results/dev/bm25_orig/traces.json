@@ -1,0 +1,2554 @@
+[
+  {
+    "query_id": "d01",
+    "split": "dev",
+    "question": "According to the Anaconda (2020) survey, how much of the data science process do data scientists spend on data collection and cleaning?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "According to the Anaconda (2020) survey, data scientists spend about half of the entire process on data collection and cleaning [openstax-pds-ch1:B:p021:c00].",
+    "citations": [
+      "openstax-pds-ch1:B:p021:c00"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "According to the Anaconda (2020) survey, how much of the data science process do data scientists spend on data collection and cleaning?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p021:c00",
+            "rank": 1,
+            "score": 39.2739,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p021:c01",
+            "rank": 2,
+            "score": 15.3378,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p020:c04",
+            "rank": 3,
+            "score": 13.0747,
+            "page": 20,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p021:c00",
+          "openstax-pds-ch1:B:p021:c01",
+          "openstax-pds-ch1:B:p020:c04"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1607,
+        "latency_ms": 0.4
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 940,
+          "output_tokens": 88
+        },
+        "latency_ms": 1351.5,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "According to the Anaconda (2020) survey, data scientists spend about half of the entire process on data collection and cleaning [openstax-pds-ch1:B:p021:c00].",
+        "citations": [
+          "openstax-pds-ch1:B:p021:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p021:c00",
+      "openstax-pds-ch1:B:p021:c01",
+      "openstax-pds-ch1:B:p020:c04"
+    ],
+    "context_chars": 1607,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p021:c00",
+        "page": 21,
+        "section": "1.1",
+        "text": "Figure 1.3 The Data Science Cycle\nAlthough data collection and preparation may sound like simple tasks compared to the more important work\nof analysis, they are actually the most time- and effort-consuming steps in the data science cycle. According to\na survey conducted by Anaconda (2020), data scientists spend about half of the entire process in data\ncollection and cleaning, while data analysis and communication take about a quarter to a third of the time\neach, depending on the job."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p021:c01",
+        "page": 21,
+        "section": "1.1",
+        "text": "Problem Definition, Data Collection, and Data Preparation\nThe first step in the data science cycle is a precise definition of the problem statement to establish clear\nobjectives for the goal and scope of the data analysis project. Once the problem has been well defined, the\ndata must be generated and collected. Data collection is the systematic process of gathering information on\nvariables of interest. Data is often collected purposefully by domain experts to find answers to predefined\nproblems. One example is data on customer responses to a product satisfaction survey. These survey\nquestions will likely be crafted by the product sales and marketing representatives, who likely have a specific\nplan for how they wish to use the response data once it is collected."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p020:c04",
+        "page": 20,
+        "section": "1.1",
+        "text": "The Data Science Cycle\nData science tasks follow a process, called the data science cycle, which includes problem definition, then\ndata collection, preparation, analysis, and reporting, as illustrated in Figure 1.3. See this animation about data\nscience (https://openstax.org/r/youtube), which describes the data science cycle in much the same way."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 940,
+      "output_tokens": 88
+    },
+    "latency_ms": 1351.9
+  },
+  {
+    "query_id": "d02",
+    "split": "dev",
+    "question": "What stages does a data science project go through, in order?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "A data science project follows the data science cycle, which includes problem definition, followed by data collection, preparation, analysis, and reporting [openstax-pds-ch1:B:p020:c04].",
+    "citations": [
+      "openstax-pds-ch1:B:p020:c04"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What stages does a data science project go through, in order?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p027:c01",
+            "rank": 1,
+            "score": 11.2449,
+            "page": 27,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p019:c02",
+            "rank": 2,
+            "score": 8.3174,
+            "page": 19,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p038:c02",
+            "rank": 3,
+            "score": 7.5054,
+            "page": 38,
+            "section": "1.4",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p027:c01",
+          "openstax-pds-ch1:B:p019:c02",
+          "openstax-pds-ch1:B:p038:c02"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1998,
+        "latency_ms": 0.6
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1051,
+          "output_tokens": 20
+        },
+        "latency_ms": 1176.4,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "data science cycle steps order",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p021:c00",
+            "rank": 1,
+            "score": 11.3591,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p019:c02",
+            "rank": 2,
+            "score": 9.6278,
+            "page": 19,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p020:c04",
+            "rank": 3,
+            "score": 8.7254,
+            "page": 20,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p021:c00",
+          "openstax-pds-ch1:B:p020:c04"
+        ],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p019:c02"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 2834,
+        "latency_ms": 0.7
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1387,
+          "output_tokens": 25
+        },
+        "latency_ms": 1761.3,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Figure 1.3 The Data Science Cycle stages",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p020:c04",
+            "rank": 1,
+            "score": 14.2406,
+            "page": 20,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p021:c00",
+            "rank": 2,
+            "score": 11.7239,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p019:c02",
+            "rank": 3,
+            "score": 10.5151,
+            "page": 19,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p020:c04",
+          "openstax-pds-ch1:B:p021:c00",
+          "openstax-pds-ch1:B:p019:c02"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 2834,
+        "latency_ms": 1.3
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1501,
+          "output_tokens": 89
+        },
+        "latency_ms": 1455.6,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "A data science project follows the data science cycle, which includes problem definition, followed by data collection, preparation, analysis, and reporting [openstax-pds-ch1:B:p020:c04].",
+        "citations": [
+          "openstax-pds-ch1:B:p020:c04"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p027:c01",
+      "openstax-pds-ch1:B:p019:c02",
+      "openstax-pds-ch1:B:p038:c02",
+      "openstax-pds-ch1:B:p021:c00",
+      "openstax-pds-ch1:B:p020:c04"
+    ],
+    "context_chars": 2834,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p027:c01",
+        "page": 27,
+        "section": "1.3",
+        "text": "Data\n“Data” is the plural of the Latin word “datum,” which translates as something that is given or used and is often\nused to mean a single piece of information or a single point of reference in a dataset. When you hear the word\n“data,” you may think of some sort of “numbers.” It is true that numbers are usually considered data, but there\nare many other forms of data all around us. Anything that we can analyze to compile information—high-level\ninsights—is considered data.\nSuppose you are debating whether to take a certain course next semester. What process do you go through in\norder to make your decision? First, you might check the course evaluations, as shown in Table 1.1.\nSemester Instructor Class Size Rating\nFall 2020 A 100\nNot\nrecommended\nat all"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p019:c02",
+        "page": 19,
+        "section": "1.1",
+        "text": "1.1 What Is Data Science?\nLearning Outcomes\nBy the end of this section, you should be able to:\n• 1.1.1 Describe the goals of data science.\n• 1.1.2 Explain the data science cycle and goals of each step in the cycle.\n• 1.1.3 Explain the role of data management in the data science process.\nData science is a field of study that investigates how to collect, manage, and analyze data of all types in order\nto retrieve meaningful information. Although we will describe data in more detail in Data and Datasets, you\ncan consider data to be any pieces of evidence or observations that can be analyzed to provide some insights."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p038:c02",
+        "page": 38,
+        "section": "1.4",
+        "text": "• 1.4.3 Explain the uses of various data analysis tools used in data science applications.\nTechnology empowers data analysts, researchers, and organizations to leverage data, extract actionable\ninsights, and make decisions that optimize processes and improve outcomes in many areas of our lives.\nSpecifically, technology provides the tools, platforms, and algorithms that enable users to efficiently process\nand analyze data—especially complex datasets. The choice of technology used for a data science project will\nvary depending on the goals of the project, the size of the datasets, and the kind of analysis required."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p021:c00",
+        "page": 21,
+        "section": "1.1",
+        "text": "Figure 1.3 The Data Science Cycle\nAlthough data collection and preparation may sound like simple tasks compared to the more important work\nof analysis, they are actually the most time- and effort-consuming steps in the data science cycle. According to\na survey conducted by Anaconda (2020), data scientists spend about half of the entire process in data\ncollection and cleaning, while data analysis and communication take about a quarter to a third of the time\neach, depending on the job."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p020:c04",
+        "page": 20,
+        "section": "1.1",
+        "text": "The Data Science Cycle\nData science tasks follow a process, called the data science cycle, which includes problem definition, then\ndata collection, preparation, analysis, and reporting, as illustrated in Figure 1.3. See this animation about data\nscience (https://openstax.org/r/youtube), which describes the data science cycle in much the same way."
+      }
+    ],
+    "n_searches": 3,
+    "n_model_searches": 2,
+    "n_model_calls": 3,
+    "usage": {
+      "input_tokens": 3939,
+      "output_tokens": 134
+    },
+    "latency_ms": 4396.6
+  },
+  {
+    "query_id": "d03",
+    "split": "dev",
+    "question": "What did Walmart learn about strawberry Pop-Tart sales before Hurricane Frances?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "Walmart discovered that strawberry Pop-Tart sales increased by about sevenfold during Hurricane Charley (prior to Hurricane Frances), leading them to ship extra supplies of strawberry Pop-Tarts to stores in the path of Hurricane Frances. [openstax-pds-ch1:B:p023:c01]",
+    "citations": [
+      "openstax-pds-ch1:B:p023:c01"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What did Walmart learn about strawberry Pop-Tart sales before Hurricane Frances?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p023:c01",
+            "rank": 1,
+            "score": 40.0834,
+            "page": 23,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p023:c00",
+            "rank": 2,
+            "score": 17.3187,
+            "page": 23,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p029:c01",
+            "rank": 3,
+            "score": 6.3328,
+            "page": 29,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p023:c01",
+          "openstax-pds-ch1:B:p023:c00",
+          "openstax-pds-ch1:B:p029:c01"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2513,
+        "latency_ms": 1.4
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1196,
+          "output_tokens": 105
+        },
+        "latency_ms": 1201.5,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "Walmart discovered that strawberry Pop-Tart sales increased by about sevenfold during Hurricane Charley (prior to Hurricane Frances), leading them to ship extra supplies of strawberry Pop-Tarts to stores in the path of Hurricane Frances. [openstax-pds-ch1:B:p023:c01]",
+        "citations": [
+          "openstax-pds-ch1:B:p023:c01"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p023:c01",
+      "openstax-pds-ch1:B:p023:c00",
+      "openstax-pds-ch1:B:p029:c01"
+    ],
+    "context_chars": 2513,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p023:c01",
+        "page": 23,
+        "section": "1.2",
+        "text": "A week before the hurricane’s arrival, staff were asked to look back at their data\non sales during Hurricane Charley, which hit several weeks earlier, and then come up with some forecasts\nabout product demand ahead of Frances (Hays, 2004). Among other insights, the executives discovered that\nstrawberry Pop-Tart sales increased by about sevenfold during that time. As a result, in the days before\nHurricane Frances, Walmart shipped extra supplies of strawberry Pop-Tarts to stores in the storm’s path (Hays,\n2004). The analysis also provided insights on how many checkout associates to assign at different times of the\nday, where to place popular products, and many other sales and product details. In addition, the company has\nlaunched social media analytics efforts to investigate hot keywords on social media and promptly make related\nproducts available (ProjectPro, 2015)."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p023:c00",
+        "page": 23,
+        "section": "1.2",
+        "text": "Retail giant Walmart is known for using business analytics to improve the company’s bottom line. Walmart\ncollects multiple petabytes (1 petabyte = 1,024 terabytes) of unstructured data every hour from millions of\ncustomers (commonly referred to as “big data”); as of 2024, Walmart’s customer data included roughly 255\nmillion weekly customer visits (Statista, 2024). Walmart uses this big data to investigate consumer patterns\nand adjust its inventories. Such analysis helps the company avoid overstocking or understocking and resulted\nin an estimated online sales increase of between 10% and 15%, translating to an extra $1 billion in revenue\n(ProjectPro, 2015). One often-reported example includes the predictive technology Walmart used to prepare\nfor Hurricane Frances in 2004."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p029:c01",
+        "page": 29,
+        "section": "1.3",
+        "text": "The rest—semester, instructor, and ratings—are categorical data. They are represented in symbols (e.g., “Fall\n2020,” “A”) or words (e.g., “Highly recommended”), and these values are chosen from the finite set of those\nsymbols and words (e.g., A vs. B). The former two data are nominal since the semester and instructor do not\nhave orders to follow, while the latter is ordinal since there is a notion of degree (Not recommended at all ~\nHighly recommended). You may argue that the semester could have chronological ordering: Fall 2020 comes\nbefore Spring 2021, Fall 2021 follows Fall 2020. If you want to value that notion for your analysis, you could\nconsider the semester data to be ordinal as well—the chronological ordering is indeed critical when you are\nlooking at a time-series dataset. You will learn more about that in Time Series and Forecasting."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1196,
+      "output_tokens": 105
+    },
+    "latency_ms": 1203.4
+  },
+  {
+    "query_id": "d04",
+    "split": "dev",
+    "question": "How did Amazon reorganize its warehousing to cut delivery time and cost?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "Amazon reorganized its warehousing by dividing the United States into eight geographic regions, ensuring that most items are warehoused and shipped from within the same region, and using machine learning algorithms to predict regional demand and pre-stock high-demand items [openstax-pds-ch1:B:p023:c02].",
+    "citations": [
+      "openstax-pds-ch1:B:p023:c02"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "How did Amazon reorganize its warehousing to cut delivery time and cost?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p023:c02",
+            "rank": 1,
+            "score": 22.4105,
+            "page": 23,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p023:c03",
+            "rank": 2,
+            "score": 12.0784,
+            "page": 23,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p022:c02",
+            "rank": 3,
+            "score": 8.742,
+            "page": 22,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p023:c02",
+          "openstax-pds-ch1:B:p023:c03",
+          "openstax-pds-ch1:B:p022:c02"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2408,
+        "latency_ms": 1.3
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1107,
+          "output_tokens": 109
+        },
+        "latency_ms": 1256.4,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "Amazon reorganized its warehousing by dividing the United States into eight geographic regions, ensuring that most items are warehoused and shipped from within the same region, and using machine learning algorithms to predict regional demand and pre-stock high-demand items [openstax-pds-ch1:B:p023:c02].",
+        "citations": [
+          "openstax-pds-ch1:B:p023:c02"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p023:c02",
+      "openstax-pds-ch1:B:p023:c03",
+      "openstax-pds-ch1:B:p022:c02"
+    ],
+    "context_chars": 2408,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p023:c02",
+        "page": 23,
+        "section": "1.2",
+        "text": "Amazon provides another good example. Ever since it launched its Prime membership service, Amazon has\nfocused on how to minimize delivery time and cost. Like Walmart, it started by analyzing consumer patterns\nand was able to place products close to customers. To do so, Amazon first divided the United States into eight\ngeographic regions and ensured that most items were warehoused and shipped within the same region; this\nallowed the company to reduce the shipping time and cost. As of 2023, more than 76% of orders were shipped\nfrom within the customer’s region, and items in same-day shipping facilities could be made ready to put on a\ndelivery truck in just 11 minutes (Herrington, 2023). Amazon also utilizes machine learning algorithms to\npredict the demand for items in each region and have the highest-demand items available in advance at the\nfulfillment center of the corresponding region."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p023:c03",
+        "page": 23,
+        "section": "1.2",
+        "text": "This predictive strategy has helped Amazon reduce the delivery\ntime for each product and extend the item selections for two-day shipping (Herrington, 2023). Data science is utilized extensively in finance as well. Detecting and managing fraudulent transactions is now\ndone by automated machine learning algorithms (IABAC, 2023). Based on the customer data and the patterns\nof past fraudulent activities, an algorithm can determine whether a transaction is fraudulent in real time. Multiple tech companies, such as IBM and Amazon Web Services, offer their own fraud detection solutions to\ntheir corporate clients. (For more information, see this online resource on Fraud Detection through Data\nAnalytics (https://openstax.org/r/iabac).)"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p022:c02",
+        "page": 22,
+        "section": "1.1",
+        "text": "When so much more data began to be collected—much of it unstructured as well as structured—cloud-based\nmanagement systems were developed to store all the data on a designated server, outside a local computer. At\nthe same time, data scientists began to see that most of their time was being spent on data processing rather\nthan analysis itself. To address this concern, modern data management systems not only store the data itself\nbut also perform some basic processing on a cloud. These systems, referred to as data warehousing, store\nand manage large volumes of data from various sources in a central location, enabling efficient retrieval and\nanalysis for business intelligence and decision-making. (Data warehousing is covered in more detail in\nHandling Large Datasets.)"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1107,
+      "output_tokens": 109
+    },
+    "latency_ms": 1257.9
+  },
+  {
+    "query_id": "d05",
+    "split": "dev",
+    "question": "What do the street sensors installed in San Diego measure, and what do they control?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "The street sensors in San Diego measure traffic, parking occupancy, humidity, and temperature, and they control the streetlights to turn them on only when necessary [openstax-pds-ch1:B:p024:c01, openstax-pds-ch1:B:p024:c02].",
+    "citations": [
+      "openstax-pds-ch1:B:p024:c01",
+      "openstax-pds-ch1:B:p024:c02"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What do the street sensors installed in San Diego measure, and what do they control?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p024:c01",
+            "rank": 1,
+            "score": 25.4537,
+            "page": 24,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p024:c02",
+            "rank": 2,
+            "score": 10.0581,
+            "page": 24,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p028:c00",
+            "rank": 3,
+            "score": 8.0083,
+            "page": 28,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p024:c01",
+          "openstax-pds-ch1:B:p024:c02",
+          "openstax-pds-ch1:B:p028:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2102,
+        "latency_ms": 2.0
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1080,
+          "output_tokens": 136
+        },
+        "latency_ms": 1907.2,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "The street sensors in San Diego measure traffic, parking occupancy, humidity, and temperature, and they control the streetlights to turn them on only when necessary [openstax-pds-ch1:B:p024:c01, openstax-pds-ch1:B:p024:c02].",
+        "citations": [
+          "openstax-pds-ch1:B:p024:c01",
+          "openstax-pds-ch1:B:p024:c02"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p024:c01",
+      "openstax-pds-ch1:B:p024:c02",
+      "openstax-pds-ch1:B:p028:c00"
+    ],
+    "context_chars": 2102,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p024:c01",
+        "page": 24,
+        "section": "1.2",
+        "text": "Data Science in Public Policy\nSmart cities are among the most representative examples of the use of data science in public policy. Multiple\ncities around the world, including Masdar City in the United Arab Emirates and Songdo in South Korea, have\ninstalled thousands of data-collecting sensors used to optimize their energy consumption. The technology is\nnot perfect, and smart cities may not yet live up to their full potential, but many corporations and companies\nare pursuing the goal of developing smart cities more broadly (Clewlow, 2024). The notion of a smart city has\nalso been applied on a smaller scale, such as to a parking lot, a building, or a street of lights. For example, the\ncity of San Diego installed thousands of sensors on the city streets to control the streetlights using data and\nsmart technology."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p024:c02",
+        "page": 24,
+        "section": "1.2",
+        "text": "The sensors measure traffic, parking occupancy, humidity, and temperature and are able to\nturn on the lights only when necessary (Van Bocxlaer, 2020). New York City has adopted smart garbage bins\nthat monitor the amount of garbage in a bin, allowing garbage collection companies to route their collection\nefforts more efficiently (Van Bocxlaer, 2020).\nEXPLORING FURTHER\nSensor Networks to Monitor Energy Consumption\nSee how Songdo (https://openstax.org/r/youtube4) monitors energy consumption and safety with sensor\nnetworks."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p028:c00",
+        "page": 28,
+        "section": "1.3",
+        "text": "EXAMPLE 1.1\nProblem\nSuppose you want to decide whether or not to put on a jacket today. You research the highest\ntemperatures in the past five days and determine whether you needed a jacket on each day. In this\nscenario, what data are you using? And what information are you trying to derive?\nSolution\nTemperature readings and whether you needed a jacket on each of the past five days are two kinds of data\nyou are referring to. Again, they do not indicate anything related to wearing a jacket today. They are simply\nfive pairs of numbers (temperature) and yes/no (whether you needed a jacket) records, with each pair\nrepresenting a day. Using these data, you are deriving information that you can analyze to help you decide\nwhether to wear a jacket today."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1080,
+      "output_tokens": 136
+    },
+    "latency_ms": 1909.6
+  },
+  {
+    "query_id": "d06",
+    "split": "dev",
+    "question": "Which overlooked player statistics did the Oakland Athletics focus on using sabermetrics?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "The Oakland Athletics focused on critical yet traditionally overlooked metrics such as on-base percentage and slugging percentage [openstax-pds-ch1:B:p025:c03].",
+    "citations": [
+      "openstax-pds-ch1:B:p025:c03"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "Which overlooked player statistics did the Oakland Athletics focus on using sabermetrics?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p025:c03",
+            "rank": 1,
+            "score": 26.3354,
+            "page": 25,
+            "section": "1.2",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p049:c01",
+            "rank": 2,
+            "score": 8.3283,
+            "page": 49,
+            "section": "1.5",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p025:c04",
+            "rank": 3,
+            "score": 8.2426,
+            "page": 25,
+            "section": "1.2",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p025:c03",
+          "openstax-pds-ch1:B:p049:c01",
+          "openstax-pds-ch1:B:p025:c04"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2027,
+        "latency_ms": 1.1
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1065,
+          "output_tokens": 82
+        },
+        "latency_ms": 1311.6,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "The Oakland Athletics focused on critical yet traditionally overlooked metrics such as on-base percentage and slugging percentage [openstax-pds-ch1:B:p025:c03].",
+        "citations": [
+          "openstax-pds-ch1:B:p025:c03"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p025:c03",
+      "openstax-pds-ch1:B:p049:c01",
+      "openstax-pds-ch1:B:p025:c04"
+    ],
+    "context_chars": 2027,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p025:c03",
+        "page": 25,
+        "section": "1.2",
+        "text": "Data Science in Sports and Entertainment\nData science is prevalent in the sports and the entertainment industry as well. Sports naturally produce much\ndata—about the player, positions, teams, seasons, and so on. Therefore, just as there is the concept of\nbusiness analytics, the analysis of such data in sports is called sports analytics. For example, the Oakland\nAthletics baseball team famously analyzed player recruitment for the 2002 season. The team’s management\nadapted a statistical approach referred to as sabermetrics to recruit and position players. With sabermetrics,\nthe team was able to identify critical yet traditionally overlooked metrics such as on-base percentage and\nslugging percentage."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p049:c01",
+        "page": 49,
+        "section": "1.5",
+        "text": "describe() returns a table whose columns are a subset of the columns in the entire dataset and whose rows\nare different statistics. The statistics include the number of unique values in a column (count), mean (mean),\nstandard deviation (std), minimum and maximum values (min/max), and different quartiles\n(25%/50%/75%), which you will learn about in Measures of Variation. Using this representation, you can\ncompute such statistics of different columns easily.\nEXAMPLE 1.10\nProblem\nSummarize the IRIS dataset using describe() of ch1-iris.csv (https://openstax.org/r/iris) you loaded in the"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p025:c04",
+        "page": 25,
+        "section": "1.2",
+        "text": "The team, with its small budget compared to other teams, recruited a number of\nundervalued players with strong scores on these metrics, and in the process, they became one of the most\nexciting teams in baseball that year, breaking the American League record for 20 wins in a row. Does this story\nsound familiar? This story was so dramatic that Michael Lewis wrote a book about it, which was also made into\na movie: Moneyball.\nEXPLORING FURTHER\nThe Sabermetrics YouTube Channel\nSabermetrics is so popular that there is a YouTube channel devoted to it: Simple Sabermetrics\n(https://openstax.org/r/simplesabermetrics), with baseball animations and tutorials explaining how data\nimpacts the way today's game is played behind the scenes."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1065,
+      "output_tokens": 82
+    },
+    "latency_ms": 1313.0
+  },
+  {
+    "query_id": "d07",
+    "split": "dev",
+    "question": "Under what condition would class size be considered discrete rather than continuous data?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "Class size would be considered discrete if the campus enforces all classes to be 200 seats or less, which restricts the values to a finite set of numbers (1, 2, 3, …, 198, 199, 200) [openstax-pds-ch1:B:p028:c04].",
+    "citations": [
+      "openstax-pds-ch1:B:p028:c04"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "Under what condition would class size be considered discrete rather than continuous data?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p028:c04",
+            "rank": 1,
+            "score": 21.9443,
+            "page": 28,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p028:c03",
+            "rank": 2,
+            "score": 13.2305,
+            "page": 28,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p027:c01",
+            "rank": 3,
+            "score": 12.4365,
+            "page": 27,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p028:c04",
+          "openstax-pds-ch1:B:p028:c03",
+          "openstax-pds-ch1:B:p027:c01"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2006,
+        "latency_ms": 1.2
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1079,
+          "output_tokens": 119
+        },
+        "latency_ms": 1561.7,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "Class size would be considered discrete if the campus enforces all classes to be 200 seats or less, which restricts the values to a finite set of numbers (1, 2, 3, …, 198, 199, 200) [openstax-pds-ch1:B:p028:c04].",
+        "citations": [
+          "openstax-pds-ch1:B:p028:c04"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p028:c04",
+      "openstax-pds-ch1:B:p028:c03",
+      "openstax-pds-ch1:B:p027:c01"
+    ],
+    "context_chars": 2006,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p028:c04",
+        "page": 28,
+        "section": "1.3",
+        "text": "From the previous example, the class size 100, 150, etc. are numbers with the implied unit “students.” Also,\nthey indicate measurable quantities as they are head counts. Therefore, the class size is numeric data. It is also\ncontinuous data since the size numbers seem to be any natural numbers and these numbers are chosen from\nan infinite set of numbers, the set of natural numbers. Note that whether data is continuous (or discrete) also\ndepends on the context. For example, the same class size data can be discrete if the campus enforces all\nclasses to be 200 seats or less. Such restriction makes the class size values be chosen from a finite set of 200\nnumbers: 1, 2, 3, …, 198, 199, 200."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p028:c03",
+        "page": 28,
+        "section": "1.3",
+        "text": "There are two primary types of quantitative data—numeric and categorical—and each of these can be divided\ninto a few subtypes. Numeric data is represented in numbers that indicate measurable quantities. It may be\nfollowed by some symbols to indicate units. Numeric data is further divided into continuous data and discrete\ndata. With continuous data, the values can be any number. In other words, a value is chosen from an infinite\nset of numbers. With discrete data, the values follow a specific precision, which makes the set of possible\nvalues finite."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p027:c01",
+        "page": 27,
+        "section": "1.3",
+        "text": "Data\n“Data” is the plural of the Latin word “datum,” which translates as something that is given or used and is often\nused to mean a single piece of information or a single point of reference in a dataset. When you hear the word\n“data,” you may think of some sort of “numbers.” It is true that numbers are usually considered data, but there\nare many other forms of data all around us. Anything that we can analyze to compile information—high-level\ninsights—is considered data.\nSuppose you are debating whether to take a certain course next semester. What process do you go through in\norder to make your decision? First, you might check the course evaluations, as shown in Table 1.1.\nSemester Instructor Class Size Rating\nFall 2020 A 100\nNot\nrecommended\nat all"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1079,
+      "output_tokens": 119
+    },
+    "latency_ms": 1563.1
+  },
+  {
+    "query_id": "d08",
+    "split": "dev",
+    "question": "What is the difference between nominal and ordinal data?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "For nominal data, the set of possible values does not include any ordering notion, whereas for ordinal data, the set of possible values includes an ordering notion (such as a notion of degree or chronological order). [openstax-pds-ch1:B:p029:c00, openstax-pds-ch1:B:p029:c01]",
+    "citations": [
+      "openstax-pds-ch1:B:p029:c00",
+      "openstax-pds-ch1:B:p029:c01"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What is the difference between nominal and ordinal data?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p029:c00",
+            "rank": 1,
+            "score": 12.7433,
+            "page": 29,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p029:c01",
+            "rank": 2,
+            "score": 8.8992,
+            "page": 29,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p058:c00",
+            "rank": 3,
+            "score": 7.5923,
+            "page": 58,
+            "section": "1.5",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p029:c00",
+          "openstax-pds-ch1:B:p029:c01",
+          "openstax-pds-ch1:B:p058:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2121,
+        "latency_ms": 1.1
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1116,
+          "output_tokens": 147
+        },
+        "latency_ms": 39023.4,
+        "retries": [
+          {
+            "status": 429,
+            "wait_s": 5
+          },
+          {
+            "status": 429,
+            "wait_s": 10
+          },
+          {
+            "status": 429,
+            "wait_s": 20
+          }
+        ],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "For nominal data, the set of possible values does not include any ordering notion, whereas for ordinal data, the set of possible values includes an ordering notion (such as a notion of degree or chronological order). [openstax-pds-ch1:B:p029:c00, openstax-pds-ch1:B:p029:c01]",
+        "citations": [
+          "openstax-pds-ch1:B:p029:c00",
+          "openstax-pds-ch1:B:p029:c01"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p029:c00",
+      "openstax-pds-ch1:B:p029:c01",
+      "openstax-pds-ch1:B:p058:c00"
+    ],
+    "context_chars": 2121,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p029:c00",
+        "page": 29,
+        "section": "1.3",
+        "text": "Categorical data is represented in different forms such as words, symbols, and even numbers. A categorical\nvalue is chosen from a finite set of values, and the value does not necessarily indicate a measurable quantity.\nCategorical data can be divided into nominal data and ordinal data. For nominal data, the set of possible\nvalues does not include any ordering notion, whereas with ordinal data, the set of possible values includes an\nordering notion."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p029:c01",
+        "page": 29,
+        "section": "1.3",
+        "text": "The rest—semester, instructor, and ratings—are categorical data. They are represented in symbols (e.g., “Fall\n2020,” “A”) or words (e.g., “Highly recommended”), and these values are chosen from the finite set of those\nsymbols and words (e.g., A vs. B). The former two data are nominal since the semester and instructor do not\nhave orders to follow, while the latter is ordinal since there is a notion of degree (Not recommended at all ~\nHighly recommended). You may argue that the semester could have chronological ordering: Fall 2020 comes\nbefore Spring 2021, Fall 2021 follows Fall 2020. If you want to value that notion for your analysis, you could\nconsider the semester data to be ordinal as well—the chronological ordering is indeed critical when you are\nlooking at a time-series dataset. You will learn more about that in Time Series and Forecasting."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p058:c00",
+        "page": 58,
+        "section": "1.5",
+        "text": "# draw a scatterplot using matplotlib’s scatter()\nplt.scatter(data[\"US_Gross_Million\"], data[\"Worldwide_Gross_Million\"])\nThe resulting output will look like this:\nNotice that it simply has a set of dots on a white plane. The plot itself does not show what each axis\nrepresents, what this plot is about, etc. Without them, it is difficult to capture what the plot shows. You can set\nthese with the following code. The resulting plot below indicates that there is a positive correlation between\ndomestic gross and worldwide gross.\n# draw a scatterplot\nplt.scatter(data[\"US_Gross_Million\"], data[\"Worldwide_Gross_Million\"])\n# set the title\nplt.title(\"Domestic vs. Worldwide Gross\")\n# set the x-axis label\nplt.xlabel(\"Domestic\")\n# set the y-axis label\nplt.ylabel(\"Worldwide\")\nThe resulting output will look like this:"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1116,
+      "output_tokens": 147
+    },
+    "latency_ms": 39024.9
+  },
+  {
+    "query_id": "d09",
+    "split": "dev",
+    "question": "Why is web data usually stored as JSON or XML rather than CSV?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "Web data is usually stored as JSON or XML because JSON is the most suitable format for exchanging data between a user and a server, while XML is the most suitable for complex datasets due to its hierarchy-friendly nature. [openstax-pds-ch1:B:p031:c01]",
+    "citations": [
+      "openstax-pds-ch1:B:p031:c01"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "Why is web data usually stored as JSON or XML rather than CSV?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p031:c01",
+            "rank": 1,
+            "score": 19.0424,
+            "page": 31,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p031:c02",
+            "rank": 2,
+            "score": 11.81,
+            "page": 31,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p036:c00",
+            "rank": 3,
+            "score": 10.7621,
+            "page": 36,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p031:c01",
+          "openstax-pds-ch1:B:p031:c02",
+          "openstax-pds-ch1:B:p036:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2376,
+        "latency_ms": 2.3
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1221,
+          "output_tokens": 105
+        },
+        "latency_ms": 897.4,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "Web data is usually stored as JSON or XML because JSON is the most suitable format for exchanging data between a user and a server, while XML is the most suitable for complex datasets due to its hierarchy-friendly nature. [openstax-pds-ch1:B:p031:c01]",
+        "citations": [
+          "openstax-pds-ch1:B:p031:c01"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p031:c01",
+      "openstax-pds-ch1:B:p031:c02",
+      "openstax-pds-ch1:B:p036:c00"
+    ],
+    "context_chars": 2376,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p031:c01",
+        "page": 31,
+        "section": "1.3",
+        "text": "Datasets can be stored in different formats, and it’s important to be able to recognize the most commonly\nused formats. This section covers three of the most often used formats for structured datasets—comma-separated values (CSV), JavaScript Object Notation (JSON), and Extensible Markup Language (XML). While\nCSV is the most intuitive way of encoding a tabular dataset, much of the data we would collect from the web\n(e.g., websites, mobile applications) is stored in the JSON or XML format. The reason is that JSON is the most\nsuitable for exchanging data between a user and a server, and XML is the most suitable for complex dataset\ndue to its hierarchy-friendly nature. Since they all store data as plain texts, you can open them using any\ntypical text editors such as Notepad, Visual Studio Code, Sublime Text, or VI editor."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p031:c02",
+        "page": 31,
+        "section": "1.3",
+        "text": "Table 1.3 summarizes the advantages and disadvantages of CSV, JSON, and XML dataset formats. Each of these\nis described in more detail below.\nDataset Format Pros Cons Typical Use\nCSV • Simple • Difficult to add\nmetadata\n• Difficult to parse if\nthere are special\ncharacters\n• Flat structure\n• Tabular data\nJSON • Simple\n• Compatible with\nmany languages\n• Easy to parse\n• Difficult to add\nmetadata\n• Cannot leave\ncomments\n• Data that needs to\nbe exchanged\nbetween a user and\na server\nXML • Structured (so more\nreadable)\n• Possible to add\nmetadata\n• Verbose\n• Complex structure\nwith tags\n• Hierarchical data\nstructures\nTable 1.3 Summary of the CSV, JSON, and XML formats"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p036:c00",
+        "page": 36,
+        "section": "1.3",
+        "text": "Figure 1.11 2020-03-30 11_30_03.690871079.xml, an Example XML file within the Small Traffic Light Dataset (Source: “Small Traffic\nLight Dataset,” https://www.kaggle.com/datasets/sovitrath/small-traffic-light-dataset-xml-format)\nJSON and XML Dataset Descriptions\nBoth JSON and XML files often include some description(s) of the dataset itself as well (known as metadata),\nand they are included as a separate entry in the file ({} or <>). In Figure 1.12 and Figure 1.13, the actual data\nentries are listed inside “itemData” and <data>, respectively. The rest are used to provide background\ninformation on the dataset. For example:\n• “creationDateTime”: describes when the dataset was created.\n• <name> is used to write the name of this dataset.\n• <metadata> is used to describe each column name of the dataset along with its data type.\nFigure 1.12 An Example JSON File with Metadata"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1221,
+      "output_tokens": 105
+    },
+    "latency_ms": 899.9
+  },
+  {
+    "query_id": "d10",
+    "split": "dev",
+    "question": "How many items and attributes does the Jeopardy JSON dataset have?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "The Jeopardy dataset has 409 items, and each item has seven attributes (“category”, “air_date”, “question”, “value”, “answer”, “round”, and “show_number”) [openstax-pds-ch1:B:p038:c00].",
+    "citations": [
+      "openstax-pds-ch1:B:p038:c00"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "How many items and attributes does the Jeopardy JSON dataset have?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p038:c00",
+            "rank": 1,
+            "score": 25.5973,
+            "page": 38,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p037:c01",
+            "rank": 2,
+            "score": 16.5684,
+            "page": 37,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p030:c01",
+            "rank": 3,
+            "score": 13.3846,
+            "page": 30,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p038:c00",
+          "openstax-pds-ch1:B:p037:c01",
+          "openstax-pds-ch1:B:p030:c01"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1852,
+        "latency_ms": 1.4
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1090,
+          "output_tokens": 104
+        },
+        "latency_ms": 1048.8,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "The Jeopardy dataset has 409 items, and each item has seven attributes (“category”, “air_date”, “question”, “value”, “answer”, “round”, and “show_number”) [openstax-pds-ch1:B:p038:c00].",
+        "citations": [
+          "openstax-pds-ch1:B:p038:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p038:c00",
+      "openstax-pds-ch1:B:p037:c01",
+      "openstax-pds-ch1:B:p030:c01"
+    ],
+    "context_chars": 1852,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p038:c00",
+        "page": 38,
+        "section": "1.3",
+        "text": "EXAMPLE 1.8\nProblem\nThe Jeopardy dataset (ch1-jeopardy.json (https://openstax.org/r/filed15)) is formatted in JSON. Download\nand open it with a code editor (e.g., Notepad, Sublime Text, Xcode, Visual Studio Code).\n• How many items are there in the dataset?\n• How many attributes are there in the dataset?\n• What is the third item in the dataset?\nSolution\nThere are 409 items in the dataset, and each item has seven attributes: “category”, “air_date”,\n“question”, “value”, “answer”, “round”, and “show_number”. The third item is located at index 2 of the first\nlist as shown in Figure 1.14.\nFigure 1.14 The Third Item in the Jeopardy Dataset"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p037:c01",
+        "page": 37,
+        "section": "1.3",
+        "text": "• How many items are there in the dataset?\n• How many attributes are there in the dataset?\n• What is the second attribute in the dataset?\nSolution\nThere are 151 rows in the dataset with the header row at the top, totaling 150 items. There are five\nattributes listed across columns: sepal_length, sepal_width, petal_length, petal_width, species.\nThe second attribute is sepal_width."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p030:c01",
+        "page": 30,
+        "section": "1.3",
+        "text": "Solution\nIt is a structured dataset since 1) every individual item is in the same structure with the same three\nattributes—Date, Temperature, and Needed a Jacket—and 2) each value strictly fits into a cell of a table.\nEXAMPLE 1.4\nProblem\nHow many entries and attributes does the dataset in the previous example have?\nSolution\nThe dataset has four entries, each of which is identified with a specific date (Oct. 10, Oct. 11, Oct. 12, Oct.\n13). The dataset has three attributes—Date, Temperature, Needed a Jacket.\nEXAMPLE 1.5\nProblem\nA dataset has a list of keywords that were searched on a web search engine in the past week. Is this dataset\nstructured or unstructured?\nSolution\nThe dataset is an unstructured dataset since each entry in the dataset can be a freeform text: a single word,\nmultiple words, or even multiple sentences."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1090,
+      "output_tokens": 104
+    },
+    "latency_ms": 1050.6
+  },
+  {
+    "query_id": "d11",
+    "split": "dev",
+    "question": "After editing several code cells in Colab, how should you run them to avoid errors from execution order?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "After making changes across multiple cells of code, it is recommended to use \"Run all\" or \"Run before\" to ensure your code runs sequentially from the top and avoids execution order errors. [openstax-pds-ch1:B:p045:c00]",
+    "citations": [
+      "openstax-pds-ch1:B:p045:c00"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "After editing several code cells in Colab, how should you run them to avoid errors from execution order?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p045:c00",
+            "rank": 1,
+            "score": 26.1224,
+            "page": 45,
+            "section": "1.5",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p043:c00",
+            "rank": 2,
+            "score": 17.5398,
+            "page": 43,
+            "section": "1.5",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p042:c00",
+            "rank": 3,
+            "score": 14.5692,
+            "page": 42,
+            "section": "1.5",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p045:c00",
+          "openstax-pds-ch1:B:p043:c00",
+          "openstax-pds-ch1:B:p042:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2132,
+        "latency_ms": 2.5
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1136,
+          "output_tokens": 100
+        },
+        "latency_ms": 41403.6,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "After making changes across multiple cells of code, it is recommended to use \"Run all\" or \"Run before\" to ensure your code runs sequentially from the top and avoids execution order errors. [openstax-pds-ch1:B:p045:c00]",
+        "citations": [
+          "openstax-pds-ch1:B:p045:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p045:c00",
+      "openstax-pds-ch1:B:p043:c00",
+      "openstax-pds-ch1:B:p042:c00"
+    ],
+    "context_chars": 2132,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p045:c00",
+        "page": 45,
+        "section": "1.5",
+        "text": "a = 2\na + b\nThe resulting output will look like this:\n5\nThe value of a has changed to 2. This implies that the execution order of each cell matters! If you have run the\nthird cell before the second cell, the value of a will have the value from the third one even though the third cell\nis located below the second cell. Therefore, it is recommended to use “Run all” or “Run before” after you make\nchanges across multiple cells of code. This way your code is guaranteed to run sequentially from the top.\nPython Pandas\nOne of the strengths of Python is that it includes a variety of free, open-source libraries. Libraries are a set of\nalready-implemented methods that a programmer can refer to, allowing a programmer to avoid building\ncommon functions from scratch."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p043:c00",
+        "page": 43,
+        "section": "1.5",
+        "text": "Jupyter Notebook does not require print(). On Jupyter Notebook, the line a+b instead of print(a+b)\nalso prints the value of a+b as an output. But keep in mind that if there are multiple lines of code that\ntrigger printing some values, only the output from the last line will show.\nYou can also run multiple cells in bulk. Click Runtime on the menu, and you will see there are multiple ways of\nrunning multiple cells at once (Figure 1.17). The two commonly used ones are “Run all” and “Run before.” “Run\nall” runs all the cells in order from the top; “Run before” runs all the cells before the currently selected one."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p042:c00",
+        "page": 42,
+        "section": "1.5",
+        "text": "print (\"hello world!\")\nThe resulting output will look like this:\nhello world!\nYou can write a Python program across multiple cells and put text cells in between. Colab would treat all the\ncode cells as part of a single program, running from the top to bottom of the current Jupyter Notebook. For\nexample, the two code cells below run as if it is a single program.\nWhen running one cell at a time from the top, we see the following outputs under each cell.\na = 1\nprint (\"The a value in the first cell:\", a)\nThe resulting output will look like this:\nThe a value in the first cell: 1\nb = 3\nprint (\"a in the second cell:\", a)\nprint (\"b in the second cell:\", b)\na + b\nThe resulting output will look like this:\na in the second cell: 1\nb in the second cell: 3\n4"
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1136,
+      "output_tokens": 100
+    },
+    "latency_ms": 41406.3
+  },
+  {
+    "query_id": "d12",
+    "split": "dev",
+    "question": "What is the difference between a Pandas DataFrame and a Series?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "A Pandas DataFrame is used for multi-column tabular data, whereas a Series is used for single-column data [openstax-pds-ch1:B:p047:c01].",
+    "citations": [
+      "openstax-pds-ch1:B:p047:c01"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What is the difference between a Pandas DataFrame and a Series?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p047:c01",
+            "rank": 1,
+            "score": 16.3269,
+            "page": 47,
+            "section": "1.5",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p050:c00",
+            "rank": 2,
+            "score": 11.3685,
+            "page": 50,
+            "section": "1.5",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p047:c00",
+            "rank": 3,
+            "score": 9.135,
+            "page": 47,
+            "section": "1.5",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p047:c01",
+          "openstax-pds-ch1:B:p050:c00",
+          "openstax-pds-ch1:B:p047:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1664,
+        "latency_ms": 1.2
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1051,
+          "output_tokens": 84
+        },
+        "latency_ms": 1384.3,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "A Pandas DataFrame is used for multi-column tabular data, whereas a Series is used for single-column data [openstax-pds-ch1:B:p047:c01].",
+        "citations": [
+          "openstax-pds-ch1:B:p047:c01"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p047:c01",
+      "openstax-pds-ch1:B:p050:c00",
+      "openstax-pds-ch1:B:p047:c00"
+    ],
+    "context_chars": 1664,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p047:c01",
+        "page": 47,
+        "section": "1.5",
+        "text": "DATAFRAME VERSUS SERIES\nPandas defines two data types for tabular data—DataFrame and Series. While DataFrame is used for multi-column tabular data, Series is used for single-column data. Many methods in Pandas support both\nDataFrame and Series, but some are only for one or the other. It is always good to check if the method you"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p050:c00",
+        "page": 50,
+        "section": "1.5",
+        "text": "previous example.\nSolution\nThe following code in a new cell returns the summary of the dataset.\ndata = pd.read_csv(\"[Path to ch1-iriscsv]\")\ndata.describe()\nThe resulting output will look like this:\nSelect Data Using Python Pandas\nThe Pandas DataFrame allows a programmer to use the column name itself when selecting a column. For\nexample, the following code prints all the values in the “US_Gross_Million” column in the form of a Series\n(remember the data from a single column is stored in the Series type in Pandas).\ndata = pd.read_csv(\"[Path to ch1-movieprofit.csv]\")\ndata[\"US_Gross_Million\"]\nlike this:\n0 760.51\n1 858.37\n2 659.33\n3 936.66"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p047:c00",
+        "page": 47,
+        "section": "1.5",
+        "text": "Figure 1.21 Copying the Path of a CSV File Located in a Google Drive Folder\nNow replace [Path] with the copied path in the below code. Run the code and you will see the dataset has been\nloaded as a table and stored as a Python variable data.\n# import Pandas and assign an abbreviated identifier \"pd\"\nimport pandas as pd\ndata = pd.read_csv(\"[Path]\")\ndata\nThe resulting output will look like this:\nThe read_csv() method in Pandas loads a CSV file and stores it as a DataFrame. A DataFrame is a data type\nthat Pandas uses to store multi-column tabular data. Therefore, the variable data holds the table in\nch1-movieprofit.csv (https://openstax.org/r/movieprofit) in the form of a Pandas DataFrame."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1051,
+      "output_tokens": 84
+    },
+    "latency_ms": 1385.7
+  },
+  {
+    "query_id": "d13",
+    "split": "dev",
+    "question": "How many items are in the Iris Flower dataset, and why does that differ from the number of rows?",
+    "filter": {
+      "section": "1.3"
+    },
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "There are 150 items in the Iris Flower dataset, which differs from the total of 151 rows because one row is the header row at the top [openstax-pds-ch1:B:p037:c01].",
+    "citations": [
+      "openstax-pds-ch1:B:p037:c01"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "How many items are in the Iris Flower dataset, and why does that differ from the number of rows?",
+        "filter": {
+          "section": "1.3"
+        },
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p037:c01",
+            "rank": 1,
+            "score": 17.2196,
+            "page": 37,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p037:c02",
+            "rank": 2,
+            "score": 12.7983,
+            "page": 37,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p038:c00",
+            "rank": 3,
+            "score": 12.5928,
+            "page": 38,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p037:c01",
+          "openstax-pds-ch1:B:p037:c02",
+          "openstax-pds-ch1:B:p038:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 1568,
+        "latency_ms": 0.8
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 999,
+          "output_tokens": 20
+        },
+        "latency_ms": 2000.2,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Iris Flower dataset rows items",
+        "filter": {
+          "section": "1.3"
+        },
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p037:c02",
+            "rank": 1,
+            "score": 11.9652,
+            "page": 37,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p037:c01",
+            "rank": 2,
+            "score": 9.7638,
+            "page": 37,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p037:c00",
+            "rank": 3,
+            "score": 9.2868,
+            "page": 37,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p037:c00"
+        ],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p037:c02",
+          "openstax-pds-ch1:B:p037:c01"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 2458,
+        "latency_ms": 1.5
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1368,
+          "output_tokens": 96
+        },
+        "latency_ms": 1073.6,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "There are 150 items in the Iris Flower dataset, which differs from the total of 151 rows because one row is the header row at the top [openstax-pds-ch1:B:p037:c01].",
+        "citations": [
+          "openstax-pds-ch1:B:p037:c01"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p037:c01",
+      "openstax-pds-ch1:B:p037:c02",
+      "openstax-pds-ch1:B:p038:c00",
+      "openstax-pds-ch1:B:p037:c00"
+    ],
+    "context_chars": 2458,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p037:c01",
+        "page": 37,
+        "section": "1.3",
+        "text": "• How many items are there in the dataset?\n• How many attributes are there in the dataset?\n• What is the second attribute in the dataset?\nSolution\nThere are 151 rows in the dataset with the header row at the top, totaling 150 items. There are five\nattributes listed across columns: sepal_length, sepal_width, petal_length, petal_width, species.\nThe second attribute is sepal_width."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p037:c02",
+        "page": 37,
+        "section": "1.3",
+        "text": "1 The Iris Flower dataset was introduced by the British statistician and biologist Ronald Fisher in his 1936 paper “The Use of Multiple\nMeasurements in Taxonomic Problems.” This work became a landmark study in the use of multivariate data in classification\nproblems and frequently makes an appearance in data science as a convenient test case for machine learning and neural network\nalgorithms. The Iris Flower dataset is often used as a beginner's dataset to demonstrate various techniques, such as classification of\nalgorithms, formatted in CSV."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p038:c00",
+        "page": 38,
+        "section": "1.3",
+        "text": "EXAMPLE 1.8\nProblem\nThe Jeopardy dataset (ch1-jeopardy.json (https://openstax.org/r/filed15)) is formatted in JSON. Download\nand open it with a code editor (e.g., Notepad, Sublime Text, Xcode, Visual Studio Code).\n• How many items are there in the dataset?\n• How many attributes are there in the dataset?\n• What is the third item in the dataset?\nSolution\nThere are 409 items in the dataset, and each item has seven attributes: “category”, “air_date”,\n“question”, “value”, “answer”, “round”, and “show_number”. The third item is located at index 2 of the first\nlist as shown in Figure 1.14.\nFigure 1.14 The Third Item in the Jeopardy Dataset"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p037:c00",
+        "page": 37,
+        "section": "1.3",
+        "text": "Figure 1.13 An Example XML Dataset with Metadata\nThe Face Mask Detection (https://openstax.org/r/andrewmvd) dataset has a set of images of human faces with\nmasks on. It follows a similar structure as well. The dataset consists of two directories—annotations and\nimages. The former is in the XML format. The name of each XML file includes any text description about the\nimage with the same filename. For example, “maksssksksss0.xml” includes information on\n“maksssksksss0.png.”\nEXAMPLE 1.7\nProblem\nThe Iris Flower dataset (ch1-iris.csv (https://openstax.org/r/iris)) is a classic dataset in the field of data\nanalysis.1 Download this dataset and open it with a code editor (e.g., Sublime Text, XCode, Visual Studio\nCode). (We recommend that if you do not have any code editor installed, you install one. All three of these\neditors are quick and easy to install.) Now, answer these questions:"
+      }
+    ],
+    "n_searches": 2,
+    "n_model_searches": 1,
+    "n_model_calls": 2,
+    "usage": {
+      "input_tokens": 2367,
+      "output_tokens": 116
+    },
+    "latency_ms": 3076.5
+  },
+  {
+    "query_id": "d14",
+    "split": "dev",
+    "question": "What is the goal of data visualization?",
+    "filter": {
+      "section": "1.1"
+    },
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "The goal of data visualization is to communicate information effectively and facilitate better decision-making [openstax-pds-ch1:B:p022:c00].",
+    "citations": [
+      "openstax-pds-ch1:B:p022:c00"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What is the goal of data visualization?",
+        "filter": {
+          "section": "1.1"
+        },
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p022:c00",
+            "rank": 1,
+            "score": 7.6517,
+            "page": 22,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p021:c01",
+            "rank": 2,
+            "score": 4.5341,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p019:c02",
+            "rank": 3,
+            "score": 3.8163,
+            "page": 19,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p022:c00",
+          "openstax-pds-ch1:B:p021:c01",
+          "openstax-pds-ch1:B:p019:c02"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2273,
+        "latency_ms": 0.7
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1056,
+          "output_tokens": 78
+        },
+        "latency_ms": 4053.4,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "The goal of data visualization is to communicate information effectively and facilitate better decision-making [openstax-pds-ch1:B:p022:c00].",
+        "citations": [
+          "openstax-pds-ch1:B:p022:c00"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p022:c00",
+      "openstax-pds-ch1:B:p021:c01",
+      "openstax-pds-ch1:B:p019:c02"
+    ],
+    "context_chars": 2273,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p022:c00",
+        "page": 22,
+        "section": "1.1",
+        "text": "Data Reporting\nData reporting involves the presentation of data in a way that will best convey the information learned from\ndata analysis. The importance of data reporting cannot be overemphasized. Without it, data scientists cannot\neffectively communicate to their audience the insights they discovered in the data. Data scientists work with\ndomain experts from different fields, and it is their responsibility to communicate the results of their analysis\nin a way that those domain experts can understand. Data visualization is a graphical way of presenting and\nreporting data to point out the patterns, trends, and hidden insights; it involves the use of visual elements\nsuch as charts, graphs, and maps to present data in a way that is easy to comprehend and analyze. The goal of\ndata visualization is to communicate information effectively and facilitate better decision-making."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p021:c01",
+        "page": 21,
+        "section": "1.1",
+        "text": "Problem Definition, Data Collection, and Data Preparation\nThe first step in the data science cycle is a precise definition of the problem statement to establish clear\nobjectives for the goal and scope of the data analysis project. Once the problem has been well defined, the\ndata must be generated and collected. Data collection is the systematic process of gathering information on\nvariables of interest. Data is often collected purposefully by domain experts to find answers to predefined\nproblems. One example is data on customer responses to a product satisfaction survey. These survey\nquestions will likely be crafted by the product sales and marketing representatives, who likely have a specific\nplan for how they wish to use the response data once it is collected."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p019:c02",
+        "page": 19,
+        "section": "1.1",
+        "text": "1.1 What Is Data Science?\nLearning Outcomes\nBy the end of this section, you should be able to:\n• 1.1.1 Describe the goals of data science.\n• 1.1.2 Explain the data science cycle and goals of each step in the cycle.\n• 1.1.3 Explain the role of data management in the data science process.\nData science is a field of study that investigates how to collect, manage, and analyze data of all types in order\nto retrieve meaningful information. Although we will describe data in more detail in Data and Datasets, you\ncan consider data to be any pieces of evidence or observations that can be analyzed to provide some insights."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1056,
+      "output_tokens": 78
+    },
+    "latency_ms": 4054.5
+  },
+  {
+    "query_id": "d15",
+    "split": "dev",
+    "question": "Why does the textbook focus on Python instead of other programming languages?",
+    "filter": {
+      "section": "1.4"
+    },
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "answered",
+    "answer": "The textbook focuses on Python because of its straightforward and intuitive syntax, which makes it especially easy for beginners to learn and apply, and because Python skills apply to a wide range of computing work [openstax-pds-ch1:B:p039:c02].",
+    "citations": [
+      "openstax-pds-ch1:B:p039:c02"
+    ],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "Why does the textbook focus on Python instead of other programming languages?",
+        "filter": {
+          "section": "1.4"
+        },
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p039:c02",
+            "rank": 1,
+            "score": 15.858,
+            "page": 39,
+            "section": "1.4",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p039:c04",
+            "rank": 2,
+            "score": 13.6913,
+            "page": 39,
+            "section": "1.4",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p040:c00",
+            "rank": 3,
+            "score": 12.2136,
+            "page": 40,
+            "section": "1.4",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p039:c02",
+          "openstax-pds-ch1:B:p039:c04",
+          "openstax-pds-ch1:B:p040:c00"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2137,
+        "latency_ms": 0.6
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1053,
+          "output_tokens": 99
+        },
+        "latency_ms": 903.9,
+        "retries": [],
+        "tool_calls": [
+          "final_answer"
+        ],
+        "text": null
+      },
+      {
+        "event": "final_answer",
+        "answer": "The textbook focuses on Python because of its straightforward and intuitive syntax, which makes it especially easy for beginners to learn and apply, and because Python skills apply to a wide range of computing work [openstax-pds-ch1:B:p039:c02].",
+        "citations": [
+          "openstax-pds-ch1:B:p039:c02"
+        ],
+        "valid": true,
+        "invalid_citations": []
+      }
+    ],
+    "stop": "final_answer",
+    "context_ids": [
+      "openstax-pds-ch1:B:p039:c02",
+      "openstax-pds-ch1:B:p039:c04",
+      "openstax-pds-ch1:B:p040:c00"
+    ],
+    "context_chars": 2137,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p039:c02",
+        "page": 39,
+        "section": "1.4",
+        "text": "Python and R are two of the most commonly used programming languages today. Both are open-source\nprogramming languages. While Python started as a general-purpose language that covers various types of\ntasks (e.g., numerical computation, data analysis, image processing, and web development), R is more\nspecifically designed for statistical computing and graphics. Both use simple syntax compared to conventional\nprogramming languages such as Java or C/C++. They offer a broad collection of packages for data\nmanipulation, statistical analysis, visualization, machine learning, and complex data modeling tasks. We have chosen to focus on Python in this text because of its straightforward and intuitive syntax, which\nmakes it especially easy for beginners to learn and apply. Also, Python skills can apply to a wide range of\ncomputing work."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p039:c04",
+        "page": 39,
+        "section": "1.4",
+        "text": "PYTHON IN EXCEL\nMicrosoft recently launched a new feature for Excel named “Python in Excel.” This feature allows a user to\nrun Python code to analyze data directly in Excel. This textbook does not cover this feature, but instead\npresents Python separately, as it is also crucial for you to know how to use each tool in its more commonly\nused environment. If interested, refer to Microsoft’s announcement (https://openstax.org/r/youtu)."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p040:c00",
+        "page": 40,
+        "section": "1.4",
+        "text": "EXPLORING FURTHER\nSpecialized Programming Languages\nOther programming languages are more specialized for a particular task with data. These include SQL,\nScala, and Julia, among others, as briefly described in this article on “The Nine Top Programming Languages\nfor Data Science (https://openstax.org/r/9top).”\nOther Data Analysis/Visualization Tools\nThere are a few other data analysis tools that are strong in data visualization. Tableau (https://openstax.org/r/\ntableau1) and PowerBI (https://openstax.org/r/micro) are user-friendly applications for data visualization. They\nare known for offering more sophisticated, interactive visualizations for high-dimensional data. They also offer\na relatively easy user interface for compiling an analysis dashboard. Both allow users to run a simple data\nanalysis as well before visualizing the results, similar to Excel."
+      }
+    ],
+    "n_searches": 1,
+    "n_model_searches": 0,
+    "n_model_calls": 1,
+    "usage": {
+      "input_tokens": 1053,
+      "output_tokens": 99
+    },
+    "latency_ms": 904.9
+  },
+  {
+    "query_id": "dn01",
+    "split": "dev",
+    "question": "According to the Anaconda (2020) survey, what share of their time do data scientists spend on deploying models to production?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng trong tài liệu để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "According to the Anaconda (2020) survey, what share of their time do data scientists spend on deploying models to production?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p021:c00",
+            "rank": 1,
+            "score": 29.9449,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p029:c01",
+            "rank": 2,
+            "score": 9.6819,
+            "page": 29,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p022:c02",
+            "rank": 3,
+            "score": 9.4613,
+            "page": 22,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p021:c00",
+          "openstax-pds-ch1:B:p029:c01",
+          "openstax-pds-ch1:B:p022:c02"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2118,
+        "latency_ms": 1.9
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1084,
+          "output_tokens": 22
+        },
+        "latency_ms": 1598.4,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "Anaconda survey deploy model production time share",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p021:c00",
+            "rank": 1,
+            "score": 12.2855,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p021:c01",
+            "rank": 2,
+            "score": 4.9489,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p028:c02",
+            "rank": 3,
+            "score": 4.6897,
+            "page": 28,
+            "section": "1.3",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p021:c01",
+          "openstax-pds-ch1:B:p028:c02"
+        ],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p021:c00"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 3729,
+        "latency_ms": 1.0
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1620,
+          "output_tokens": 55
+        },
+        "latency_ms": 1429.1,
+        "retries": [],
+        "tool_calls": [
+          "abstain"
+        ],
+        "text": null
+      },
+      {
+        "event": "abstain",
+        "reason": "The provided chapter passages mention an Anaconda (2020) survey regarding the time spent on data collection and cleaning, but do not contain information about the share of time spent on deploying models to production."
+      }
+    ],
+    "abstain_reason": "The provided chapter passages mention an Anaconda (2020) survey regarding the time spent on data collection and cleaning, but do not contain information about the share of time spent on deploying models to production.",
+    "stop": "abstain",
+    "context_ids": [
+      "openstax-pds-ch1:B:p021:c00",
+      "openstax-pds-ch1:B:p029:c01",
+      "openstax-pds-ch1:B:p022:c02",
+      "openstax-pds-ch1:B:p021:c01",
+      "openstax-pds-ch1:B:p028:c02"
+    ],
+    "context_chars": 3729,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p021:c00",
+        "page": 21,
+        "section": "1.1",
+        "text": "Figure 1.3 The Data Science Cycle\nAlthough data collection and preparation may sound like simple tasks compared to the more important work\nof analysis, they are actually the most time- and effort-consuming steps in the data science cycle. According to\na survey conducted by Anaconda (2020), data scientists spend about half of the entire process in data\ncollection and cleaning, while data analysis and communication take about a quarter to a third of the time\neach, depending on the job."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p029:c01",
+        "page": 29,
+        "section": "1.3",
+        "text": "The rest—semester, instructor, and ratings—are categorical data. They are represented in symbols (e.g., “Fall\n2020,” “A”) or words (e.g., “Highly recommended”), and these values are chosen from the finite set of those\nsymbols and words (e.g., A vs. B). The former two data are nominal since the semester and instructor do not\nhave orders to follow, while the latter is ordinal since there is a notion of degree (Not recommended at all ~\nHighly recommended). You may argue that the semester could have chronological ordering: Fall 2020 comes\nbefore Spring 2021, Fall 2021 follows Fall 2020. If you want to value that notion for your analysis, you could\nconsider the semester data to be ordinal as well—the chronological ordering is indeed critical when you are\nlooking at a time-series dataset. You will learn more about that in Time Series and Forecasting."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p022:c02",
+        "page": 22,
+        "section": "1.1",
+        "text": "When so much more data began to be collected—much of it unstructured as well as structured—cloud-based\nmanagement systems were developed to store all the data on a designated server, outside a local computer. At\nthe same time, data scientists began to see that most of their time was being spent on data processing rather\nthan analysis itself. To address this concern, modern data management systems not only store the data itself\nbut also perform some basic processing on a cloud. These systems, referred to as data warehousing, store\nand manage large volumes of data from various sources in a central location, enabling efficient retrieval and\nanalysis for business intelligence and decision-making. (Data warehousing is covered in more detail in\nHandling Large Datasets.)"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p021:c01",
+        "page": 21,
+        "section": "1.1",
+        "text": "Problem Definition, Data Collection, and Data Preparation\nThe first step in the data science cycle is a precise definition of the problem statement to establish clear\nobjectives for the goal and scope of the data analysis project. Once the problem has been well defined, the\ndata must be generated and collected. Data collection is the systematic process of gathering information on\nvariables of interest. Data is often collected purposefully by domain experts to find answers to predefined\nproblems. One example is data on customer responses to a product satisfaction survey. These survey\nquestions will likely be crafted by the product sales and marketing representatives, who likely have a specific\nplan for how they wish to use the response data once it is collected."
+      },
+      {
+        "id": "openstax-pds-ch1:B:p028:c02",
+        "page": 28,
+        "section": "1.3",
+        "text": "Examples include descriptions, observations, interviews, and open-ended survey responses (as we’ll\nsee in Survey Design and Implementation) that address unquantifiable details (e.g., photos, posts on Reddit). The data types often dictate methods for data analysis, so it is important to be able to identify a type of data. Thus, this section will take a further dive into types of data.\nLet’s revisit our previous example about deciding whether to take a certain course next semester. In that\nexample, we referred to four pieces of data. They are encoded in different types such as numbers, words, and\nsymbols.\n1. The semester the course was offered—Fall 2020, Spring 2021, …, Fall 2022, Spring 2023\n2. The instructor—A and B\n3. The class size—100, 50, 120, 40, 110, 50\n4. The course rating—“Not recommended at all,” …, “Highly recommended”"
+      }
+    ],
+    "n_searches": 2,
+    "n_model_searches": 1,
+    "n_model_calls": 2,
+    "usage": {
+      "input_tokens": 2704,
+      "output_tokens": 77
+    },
+    "latency_ms": 3030.9
+  },
+  {
+    "query_id": "dn02",
+    "split": "dev",
+    "question": "What is the median annual salary of data scientists according to the Bureau of Labor Statistics?",
+    "filter": null,
+    "config": "bm25_orig",
+    "model": {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0
+    },
+    "retriever": {
+      "retriever": "bm25",
+      "k1": 1.5,
+      "b": 0.75,
+      "chunks": 135,
+      "tokenizer": "unicode \\w+ casefold"
+    },
+    "status": "abstain",
+    "answer": "Không đủ bằng chứng trong tài liệu để trả lời.",
+    "citations": [],
+    "events": [
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "system",
+        "query": "What is the median annual salary of data scientists according to the Bureau of Labor Statistics?",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p032:c00",
+            "rank": 1,
+            "score": 11.5094,
+            "page": 32,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p063:c01",
+            "rank": 2,
+            "score": 10.4674,
+            "page": 63,
+            "section": "key-terms",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p021:c05",
+            "rank": 3,
+            "score": 9.7477,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [
+          "openstax-pds-ch1:B:p032:c00",
+          "openstax-pds-ch1:B:p063:c01",
+          "openstax-pds-ch1:B:p021:c05"
+        ],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2407,
+        "latency_ms": 1.5
+      },
+      {
+        "event": "model",
+        "step": 1,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1205,
+          "output_tokens": 24
+        },
+        "latency_ms": 970.9,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "median annual salary data scientists Bureau of Labor Statistics",
+        "filter": null,
+        "top_k": 3,
+        "results": [
+          {
+            "id": "openstax-pds-ch1:B:p032:c00",
+            "rank": 1,
+            "score": 11.1635,
+            "page": 32,
+            "section": "1.3",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p063:c01",
+            "rank": 2,
+            "score": 10.1922,
+            "page": 63,
+            "section": "key-terms",
+            "retriever": "bm25"
+          },
+          {
+            "id": "openstax-pds-ch1:B:p021:c05",
+            "rank": 3,
+            "score": 6.6376,
+            "page": 21,
+            "section": "1.1",
+            "retriever": "bm25"
+          }
+        ],
+        "added_to_context": [],
+        "already_in_context": [
+          "openstax-pds-ch1:B:p032:c00",
+          "openstax-pds-ch1:B:p063:c01",
+          "openstax-pds-ch1:B:p021:c05"
+        ],
+        "dropped_for_budget": [],
+        "context_chars_after": 2407,
+        "latency_ms": 1.6
+      },
+      {
+        "event": "model",
+        "step": 2,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1318,
+          "output_tokens": 16
+        },
+        "latency_ms": 12292.6,
+        "retries": [],
+        "tool_calls": [
+          "search_chapter"
+        ],
+        "text": null
+      },
+      {
+        "event": "search",
+        "tool": "search_chapter",
+        "by": "model",
+        "query": "salary",
+        "filter": null,
+        "top_k": 3,
+        "results": [],
+        "added_to_context": [],
+        "already_in_context": [],
+        "dropped_for_budget": [],
+        "context_chars_after": 2407,
+        "latency_ms": 0.4
+      },
+      {
+        "event": "model",
+        "step": 3,
+        "finish": "tool_calls",
+        "usage": {
+          "input_tokens": 1360,
+          "output_tokens": 37
+        },
+        "latency_ms": 2161.5,
+        "retries": [],
+        "tool_calls": [
+          "abstain"
+        ],
+        "text": null
+      },
+      {
+        "event": "abstain",
+        "reason": "The chapter passages do not contain information about the median annual salary of data scientists according to the Bureau of Labor Statistics."
+      }
+    ],
+    "abstain_reason": "The chapter passages do not contain information about the median annual salary of data scientists according to the Bureau of Labor Statistics.",
+    "stop": "abstain",
+    "context_ids": [
+      "openstax-pds-ch1:B:p032:c00",
+      "openstax-pds-ch1:B:p063:c01",
+      "openstax-pds-ch1:B:p021:c05"
+    ],
+    "context_chars": 2407,
+    "context": [
+      {
+        "id": "openstax-pds-ch1:B:p032:c00",
+        "page": 32,
+        "section": "1.3",
+        "text": "EXPLORING FURTHER\nPopular and Reliable Databases to Search for Public Datasets\nMultiple online databases offer public datasets for free. When you want to look for a dataset of interest, the\nfollowing sources can be your initial go-to.\nGovernment data sources include:\nData.gov (https://openstax.org/r/datagov)\nBureau of Labor Statistics (BLS) (https://openstax.org/r/blsgov1)\nNational Oceanic and Atmospheric Administration (NOAA) (https://openstax.org/r/noaagov)\nWorld Health Organization (WHO) (https://openstax.org/r/who)\nSome reputable nongovernment data sources are:\nKaggle (https://openstax.org/r/kaggle1)\nStatista (https://openstax.org/r/statista)\nPew Research Center (https://openstax.org/r/pewresearch)\nComma-Separated Values (CSV)"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p063:c01",
+        "page": 63,
+        "section": "key-terms",
+        "text": "ms have different structures\nXML tag any block of text that consists of a pair of angle brackets (< >) with some text inside\nGroup Project\nProject A: Data Source Quality\nAs a student of, or a new professional working in, data science, you will not always be collecting new primary\ndata. It’s just as important to be able to locate, critically evaluate, and properly clean existing sources of\nsecondary data. (Collecting and Preparing Data will cover the topic of data collection and cleaning in more\ndetail.)\nSome reputable government data sources are:\nData.gov (https://openstax.org/r/datagov)\nBureau of Labor Statistics (BLS) (https://openstax.org/r/blsgov1)\nNational Oceanic and Atmospheric Administration (NOAA) (https://openstax.org/r/noaagov)\nSome reputable nongovernment data sources are:\nKaggle (https://openstax.org/r/kaggle1)\nStatista (https://openstax.org/r/statista)"
+      },
+      {
+        "id": "openstax-pds-ch1:B:p021:c05",
+        "page": 21,
+        "section": "1.1",
+        "text": "Data Analysis\nOnce the data is collected and prepared, it must be analyzed in order to discover meaningful insights, a\nprocess called data analysis. There are a variety of data analysis methods to choose from, ranging from\nsimple ones like checking minimum and maximum values, to more advanced ones such as modelling a\ndependent variable. Most of the time data scientists start with simple methods and then move into more\nadvanced ones, based on what they want to investigate further. Descriptive Statistics: Statistical Measurements\nand Probability Distributions and Inferential Statistics and Regression Analysis discuss when and how to use\ndifferent analysis methods. Time Series and Forecasting and Decision-Making Using Machine Learning Basics\ndiscuss forecasting and decision-making."
+      }
+    ],
+    "n_searches": 3,
+    "n_model_searches": 2,
+    "n_model_calls": 3,
+    "usage": {
+      "input_tokens": 3883,
+      "output_tokens": 77
+    },
+    "latency_ms": 15429.0
+  }
+]

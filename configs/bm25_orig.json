@@ -1,0 +1,10 @@
+{
+  "name": "bm25_orig",
+  "retriever": "bm25",
+  "top_k": 3,
+  "max_searches": 3,
+  "budget_chars": 4000,
+  "use_filter": true,
+  "first_search": "original",
+  "notes": "Improvement over the bm25 baseline: only change is first_search=original (system searches the original question verbatim first; counts toward max_searches=3). Hypothesis: BM25 is already 15/15 on dev. Giving the model the passages of the original question up front should let it answer with fewer model calls and searches, cutting tokens and time at equal quality."
+}

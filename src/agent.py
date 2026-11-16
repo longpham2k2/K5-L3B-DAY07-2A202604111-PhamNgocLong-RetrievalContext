@@ -79,6 +79,13 @@ def run_agent(case: dict[str, Any], provider: Any, retriever: Any, cfg: dict[str
     start = time.perf_counter()
     nudged = False
     try:
+        if cfg.get("first_search") == "original":
+            # Improvement: the system searches the original question verbatim before the model rewrites it.
+            # It counts toward max_searches, so the total search budget equals the baseline's.
+            payload = _search(case["question"], "system", retriever, filters, top_k, budget, context, events)
+            messages[1]["content"] = (
+                f"{case['question']}\n\nAn initial search_chapter call with this exact question returned "
+                f"(you may search {max_searches - 1} more time(s)):\n{json.dumps(payload, ensure_ascii=False)}")
         for step in range(1, max_steps + 1):
             resp = provider.complete(messages, TOOLS)
             _usage_add(usage, resp["usage"])
@@ -114,9 +121,46 @@ def run_agent(case: dict[str, Any], provider: Any, retriever: Any, cfg: dict[str
         trace.update(status="error", error=f"{type(exc).__name__}: {exc}", stop="error")
     trace.update(context_ids=[c["id"] for c in context], context_chars=sum(len(c["text"]) for c in context),
                  context=[_passage(c) for c in context], n_searches=sum(e["event"] == "search" for e in events),
+                 n_model_searches=sum(e["event"] == "search" and e["by"] == "model" for e in events),
                  n_model_calls=sum(e["event"] == "model" for e in events), usage=usage,
                  latency_ms=round((time.perf_counter() - start) * 1000, 1))
     return trace
+
+
+def _search(query: str, by: str, retriever: Any, filters: dict[str, Any] | None, top_k: int, budget: int,
+            context: list[dict[str, Any]], events: list[dict[str, Any]]) -> dict[str, Any]:
+    """Run one retrieval, add new passages to the context within the budget, log a `search` event.
+
+    `by` is "model" (search_chapter tool call) or "system" (initial search with the original question).
+    """
+    t0 = time.perf_counter()
+    results = retriever.search(query, filters=filters, top_k=top_k)
+    seen = {c["id"] for c in context}
+    used = sum(len(c["text"]) for c in context)
+    added, dropped, repeated = [], [], []
+    for c in results:
+        if c["id"] in seen:
+            repeated.append(c["id"])
+        elif used + len(c["text"]) <= budget:
+            context.append(c)
+            seen.add(c["id"])
+            used += len(c["text"])
+            added.append(c)
+        else:
+            dropped.append(c["id"])
+    events.append({"event": "search", "tool": "search_chapter", "by": by, "query": query, "filter": filters,
+                   "top_k": top_k, "results": [_result_row(c) for c in results],
+                   "added_to_context": [c["id"] for c in added], "already_in_context": repeated,
+                   "dropped_for_budget": dropped, "context_chars_after": used,
+                   "latency_ms": round((time.perf_counter() - t0) * 1000, 1)})
+    payload: dict[str, Any] = {"passages": [_passage(c) for c in added]}
+    if repeated:
+        payload["already_shown"] = repeated
+    if dropped:
+        payload["note"] = f"{len(dropped)} more passage(s) omitted: context budget reached"
+    if not results:
+        payload["note"] = "no passages matched"
+    return payload
 
 
 def _handle_call(name: str, args: dict[str, Any] | None, case: dict[str, Any], retriever: Any,
@@ -133,34 +177,7 @@ def _handle_call(name: str, args: dict[str, Any] | None, case: dict[str, Any], r
         if sum(e["event"] == "search" for e in events) >= max_searches:
             events.append({"event": "search_limit", "query": query})
             return {"tool_result": {"error": f"search limit ({max_searches}) reached; call final_answer or abstain"}}
-        t0 = time.perf_counter()
-        results = retriever.search(query, filters=filters, top_k=top_k)
-        seen = {c["id"] for c in context}
-        used = sum(len(c["text"]) for c in context)
-        added, dropped, repeated = [], [], []
-        for c in results:
-            if c["id"] in seen:
-                repeated.append(c["id"])
-            elif used + len(c["text"]) <= budget:
-                context.append(c)
-                seen.add(c["id"])
-                used += len(c["text"])
-                added.append(c)
-            else:
-                dropped.append(c["id"])
-        events.append({"event": "search", "tool": "search_chapter", "query": query, "filter": filters,
-                       "top_k": top_k, "results": [_result_row(c) for c in results],
-                       "added_to_context": [c["id"] for c in added], "already_in_context": repeated,
-                       "dropped_for_budget": dropped, "context_chars_after": used,
-                       "latency_ms": round((time.perf_counter() - t0) * 1000, 1)})
-        payload: dict[str, Any] = {"passages": [_passage(c) for c in added]}
-        if repeated:
-            payload["already_shown"] = repeated
-        if dropped:
-            payload["note"] = f"{len(dropped)} more passage(s) omitted: context budget reached"
-        if not results:
-            payload["note"] = "no passages matched"
-        return {"tool_result": payload}
+        return {"tool_result": _search(query, "model", retriever, filters, top_k, budget, context, events)}
     if name == "final_answer":
         answer, citations = args.get("answer"), args.get("citations")
         ids = {c["id"] for c in context}

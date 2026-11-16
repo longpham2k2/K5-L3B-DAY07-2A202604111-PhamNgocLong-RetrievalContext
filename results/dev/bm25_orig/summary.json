@@ -1,0 +1,78 @@
+{
+  "config": {
+    "name": "bm25_orig",
+    "retriever": "bm25",
+    "top_k": 3,
+    "max_searches": 3,
+    "budget_chars": 4000,
+    "use_filter": true,
+    "first_search": "original",
+    "notes": "Improvement over the bm25 baseline: only change is first_search=original (system searches the original question verbatim first; counts toward max_searches=3). Hypothesis: BM25 is already 15/15 on dev. Giving the model the passages of the original question up front should let it answer with fewer model calls and searches, cutting tokens and time at equal quality."
+  },
+  "split": "dev",
+  "started_utc": "2026-11-16T04:21:39+00:00",
+  "model": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "temperature": 0.0
+  },
+  "retriever": {
+    "retriever": "bm25",
+    "k1": 1.5,
+    "b": 0.75,
+    "chunks": 135,
+    "tokenizer": "unicode \\w+ casefold"
+  },
+  "subset_ids": null,
+  "retrieval_original_query": {
+    "N": 15,
+    "k": 3,
+    "query": "original question",
+    "hit1": 13,
+    "hit3": 14,
+    "mrr3": 0.9,
+    "latency_ms_total": 8.1
+  },
+  "context_evidence": {
+    "n": 15,
+    "N": 15
+  },
+  "cases": 17,
+  "status": {
+    "answered": 15,
+    "abstain": 2
+  },
+  "stop_reasons": {
+    "final_answer": 15,
+    "abstain": 2
+  },
+  "errors": [],
+  "tool_use": {
+    "n": 17,
+    "N": 17
+  },
+  "searches_per_case": {
+    "1": 13,
+    "2": 2,
+    "3": 2
+  },
+  "model_calls_per_case": {
+    "1": 13,
+    "2": 2,
+    "3": 2
+  },
+  "avg_context_chars": 2273.3,
+  "latency_ms": {
+    "median": 1563.1,
+    "total": 123258.7
+  },
+  "tokens": {
+    "input": 27083,
+    "output": 1760
+  },
+  "provider_retries": {
+    "429": 3
+  },
+  "cost_usd": null,
+  "cost_note": "prices not set: cost = tokens x price on the run date"
+}
